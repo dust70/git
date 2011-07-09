@@ -1,0 +1,196 @@
+[core]
+    compression = 9
+    editor = vim
+    excludesfile = ~/.gitignore
+    loosecompression = 9
+    notesRef = true
+    preloadindex = true
+
+[add]
+    ignore-errors = true
+
+[alias]
+    ac = commit --all
+    ad = add --verbose --all --ignore-errors --
+    ai = add --verbose --interactive --all --ignore-errors --
+    ba = branch -a --verbose
+    br = branch --verbose
+    ca = commit --amend -q
+    ch = checkout master
+    cl = clone --verbose --progress
+    cm = commit
+    cn = !"find -name '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -delete && git fsck --unreachable && git prune && git gc --aggressive && git repack -a && git prune-packed"
+    co = checkout
+    cp = cherry-pick --edit --no-commit
+    dh = diff -w -b HEAD --
+    di = diff -w -b
+    dt = difftool
+    fe = fetch --prune --verbose --progress
+    fm = !"git fe origin"
+    in = !echo -n 'init: ' && git rev-list --reverse HEAD | head -n 1
+    lg = log -n25 --stat
+    lo = log --oneline
+    ls = ls-files --cached --modified --others --exclude-standard --
+    me = merge --stat --summary --verbose
+    mm = !"git me origin/$(git branch-name)"
+    mt = mergetool --no-prompt
+    ph = push --tags --verbose --progress
+    pl = pull --verbose --progress --rebase
+    pm = !"git pl origin $(git branch-name)"
+    pu = !"git ph origin $(git branch-name)"
+    ra = rebase --abort
+    rb = rebase --verbose  master
+    rc = rebase --continue
+    re = rebase --skip --verbase
+    rh = reset --hard
+    ri = rebase --interactive
+    rs = reset --soft HEAD
+    rv = remote --verbose
+    sa = stash save
+    sb = !"git br && git sr \"git br\""
+    sc = stash create
+    se = !"git ri $(git rev-list --reverse HEAD | head -n 1)"
+    sf = !"git sm foreach"
+    sh = shortlog -w72,2,4
+    sl = stash list
+    sm = submodule
+    so = stash pop
+    sp = !"git sf \"git pu; git st -s; echo\"; git pu; git st -s"
+    sr = !"git sf --recursive"
+    ss = !"git st && git sf \"git st -s; echo\" && git sm status --recursive"
+    st = status
+    su = !"git fe; git mm; echo; git sr \"git fe; git mm; echo\";git sm -q sync; git st"
+    sw = show --pretty=fuller
+    tg = tag -s -m
+
+    alias = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
+    branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
+
+[apply]
+    ignorewhitespace = change
+    whitespace = nowarn
+
+[branch]
+    autosetuprebase = always
+
+[clean]
+    requireForce = true
+
+[color]
+    branch = auto
+    diff = false
+    grep = false
+    interactive = auto
+    pager = false
+    showbranch = auto
+    status = auto
+    ui = auto
+
+[color "branch"]
+    current = green normal bold
+    local = yellow normal bold
+    plain = white normal bold
+    remote = red normal bold
+
+[color "status"]
+    added = green normal bold
+    updated = green normal bold
+    changed = yellow normal bold
+    nobranch = red white blink
+    untracked = red normal bold
+
+[commit]
+    status = true
+
+[diff]
+    mnemonicprefix = true
+    renames = copy
+    tool = vimdiff
+
+[format]
+    thread = deep
+
+[gc]
+    pruneexpire = 1 week ago
+    reflogexpire = 1 week ago
+    reflogexpireunreachable = 1 week ago
+
+[gui]
+    commitmsgwidth = 72
+    diffcontext = 3
+    encoding = utf-8
+    fontdiff = -family Terminus -size 8 -weight normal -slant roman -underline 0 -overstrike 0
+    fontui = -family Terminus -size 8 -weight normal -slant roman -underline 0 -overstrike 0
+    pruneduringfetch = true
+    spellingdictionary = en_US
+
+[help]
+    autocorrect = 10
+    format = man
+
+[i18n]
+    commitEncoding = utf8
+    logOutputEncoding = utf8
+
+[interactive]
+    singlekey = false
+
+[log]
+    date = iso
+    showroot = true
+
+[merge]
+    log = true
+    stat = true
+    tool = vimdiff
+    verbosity = 5
+
+[mergetool]
+    keepBackup = true
+    keepTemporaries = true
+
+[pack]
+    compression = 9
+
+[push]
+    default = matching
+
+[rebase]
+    autosquash = true
+    stat = true
+
+[receive]
+    autogc = true
+    fsckObjects = true
+    updateserverinfo = true
+
+[status]
+    relativePaths = false
+    showUntrackedFiles = all
+    submodulesummary = 5
+
+[user]
+    email = mail@rene-six.de
+    name = René Six
+    signingkey = 0xF91E87BC
+
+[tig]
+    author-width = 15
+    horizontal-scroll = 95%
+    line-graphics = utf-8
+    line-number-interval = 5
+    show-date = true
+    show-line-numbers = true
+    show-refs = true
+    show-rev-graph = true
+    tab-size = 4
+
+[giggle]
+    file-view-vpane-position = 800
+    history-view-vpane-position = 610
+    main-window-geometry = 1024x768+13+0
+    main-window-maximized = false
+    main-window-view = HistoryView
+    show-graph = true
+
+# vim:filetype=gitconfig foldmethod=indent
