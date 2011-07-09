@@ -1,0 +1,9 @@
+*.BACKUP.*
+*.bak
+*.BASE.*
+*.LOCAL.*
+*.orig
+*.REMOTE.*
+*.sw?
+*~
+\#*#
