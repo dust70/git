@@ -48,7 +48,7 @@
     rv = remote --verbose
     sa = stash save
     sb = !"git br && git sr \"git br\""
-    sc = stash create
+    sc = stash clear
     se = !"git ri $(git rev-list --reverse HEAD | head -n 1)"
     sf = !"git sm foreach"
     sh = shortlog -w72,2,4
