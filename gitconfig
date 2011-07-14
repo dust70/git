@@ -34,6 +34,7 @@
     me = merge --stat --summary --verbose
     mm = !"git me origin/$(git branch-name)"
     mt = mergetool --no-prompt
+    pa = push --all --verbose --progress origin
     ph = push --tags --verbose --progress
     pl = pull --verbose --progress --rebase
     pm = !"git pl origin $(git branch-name)"
@@ -65,6 +66,7 @@
 
     alias = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
+    tig = "!tig --all"
 
 [apply]
     ignorewhitespace = change
