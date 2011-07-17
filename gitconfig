@@ -113,9 +113,9 @@
     thread = deep
 
 [gc]
-    pruneexpire = 1 week ago
-    reflogexpire = 1 week ago
-    reflogexpireunreachable = 1 week ago
+    pruneexpire = 1 day ago
+    reflogexpire = 1 day ago
+    reflogexpireunreachable = 1 day ago
 
 [gui]
     commitmsgwidth = 72
