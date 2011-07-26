@@ -19,7 +19,7 @@
     ch = checkout master
     cl = clone --verbose --progress
     cm = commit
-    cn = !"find -name '*.orig' -delete -o -name '*.BASE.*' -delete -o -name '*.LOCAL.*' -delete -o -name '*.REMOTE.*' -delete && git fsck --unreachable && git prune && git gc --aggressive && git repack -a && git prune-packed"
+    cn = !"find . \\( -name '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' \\) -delete && git fsck --unreachable && git prune && git gc --aggressive && git repack -a && git prune-packed"
     co = checkout
     cp = cherry-pick --edit --no-commit
     dh = diff -w -b HEAD --
@@ -28,7 +28,7 @@
     fe = fetch --prune --verbose --progress
     fm = !"git fe origin"
     in = !echo -n 'init: ' && git rev-list --reverse HEAD | head -n 1
-    lg = log -n25 --stat
+    lg = log --stat
     lo = log --oneline
     ls = ls-files --cached --modified --others --exclude-standard --
     me = merge --stat --summary --verbose
@@ -60,7 +60,7 @@
     sr = !"git sf --recursive"
     ss = !"git st && git sf \"git st -s; echo\" && git sm status --recursive"
     st = status
-    su = !"git fe; git mm; echo; git sr \"git fe; git mm; echo\";git sm -q sync; git st"
+    su = !"git fe; git mm; git cn; echo; git sr \"git fe; git mm; git cn; echo\"; git sm -q sync; git st"
     sw = show --pretty=fuller
     tg = tag -s -m
 
