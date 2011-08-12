@@ -105,6 +105,7 @@
     status = true
 
 [diff]
+    guitool = gvimdiff
     mnemonicprefix = true
     renames = copy
     tool = vimdiff
@@ -146,10 +147,6 @@
     stat = true
     tool = vimdiff
     verbosity = 5
-
-[mergetool]
-    keepBackup = true
-    keepTemporaries = true
 
 [pack]
     compression = 9
