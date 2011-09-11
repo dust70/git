@@ -166,7 +166,6 @@
 [status]
     relativePaths = false
     showUntrackedFiles = all
-    submodulesummary = 5
 
 [user]
     email = mail@rene-six.de
