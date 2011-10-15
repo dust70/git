@@ -42,7 +42,7 @@
     ra = rebase --abort
     rb = rebase --verbose  master
     rc = rebase --continue
-    re = rebase --skip --verbase
+    re = rebase --skip
     rh = reset --hard
     ri = rebase --interactive
     rs = reset --soft HEAD
