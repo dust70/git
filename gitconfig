@@ -67,6 +67,7 @@
     alias = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     tig = "!tig --all"
+    total-clean = "!git co -f && git clean -dfx && git clean -dfX"
 
 [apply]
     ignorewhitespace = change
