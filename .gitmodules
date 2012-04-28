@@ -1,0 +1,4 @@
+[submodule "GitIgnore"]
+	path = GitIgnore
+	url = git://github.com/github/gitignore.git
+	ignore = all
