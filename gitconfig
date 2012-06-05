@@ -16,12 +16,14 @@
     ba = branch -a --verbose
     br = branch --verbose
     ca = commit --amend -q
+    cd = checkout desktop
     ch = checkout master
     cl = clone --verbose --progress
     cm = commit
     cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git fsck --unreachable && git prune && git gc --aggressive && git repack -a && git prune-packed"
     co = checkout
     cp = cherry-pick --edit --no-commit
+    cv = checkout vserver
     dh = diff -w -b HEAD --
     di = diff -w -b
     dt = difftool
@@ -40,8 +42,9 @@
     pm = !"git pl origin $(git branch-name)"
     pu = !"git ph origin $(git branch-name)"
     ra = rebase --abort
-    rb = rebase --verbose  master
+    rb = rebase --verbose master
     rc = rebase --continue
+    rd = rebase --verbose desktop
     re = rebase --skip
     rh = reset --hard
     ri = rebase --interactive
@@ -63,6 +66,9 @@
     su = !"git fe; git mm; git cn; echo; git sr \"git fe; git mm; git cn; echo\"; git sm -q sync; git st"
     sw = show --pretty=fuller
     tg = tag -s -m
+
+    cal = checkout aldebaran
+    cam = checkout amalthea
 
     alias = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
