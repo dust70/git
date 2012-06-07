@@ -20,7 +20,7 @@
     ch = checkout master
     cl = clone --verbose --progress
     cm = commit
-    cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git fsck --unreachable && git prune && git gc --aggressive && git repack -a && git prune-packed"
+    cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire && git fsck --unreachable --full && git prune && git gc --aggressive && git repack -Ad && git prune-packed"
     co = checkout
     cp = cherry-pick --edit --no-commit
     cv = checkout vserver
