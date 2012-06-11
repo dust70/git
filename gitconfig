@@ -28,7 +28,7 @@
     di = diff -w -b
     dt = difftool
     fe = fetch --prune --verbose --progress
-    fm = !"git fe origin"
+    fm = !"git fe origin && git fe --tags origin"
     in = !echo -n 'init: ' && git rev-list --reverse HEAD | head -n 1
     lg = log --stat
     lo = log --oneline
@@ -63,7 +63,7 @@
     sr = !"git sf --recursive"
     ss = !"git st && git sf \"git st -s; echo\" && git sm status --recursive"
     st = status
-    su = !"git fe; git mm; git cn; echo; git sr \"git fe; git mm; git cn; echo\"; git sm -q sync; git st"
+    su = !"git fe; git fe --tags; git mm; git cn; echo; git sr \"git fe; git fe --tags; git mm; git cn; echo\"; git sm -q sync; git st"
     sw = show --pretty=fuller
     tg = tag -s -m
 
