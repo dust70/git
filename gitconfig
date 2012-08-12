@@ -65,6 +65,12 @@
     rma = rebase --verbose master
     rpu = rebase --verbose public
 
+    scl = svn clone
+    scm = svn dcommit
+    sfe = svn fetch
+    sgc = svn gc
+    slg = svn log --show-commit
+
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
     upre = !"git fm -q && git sa; git rh $(git rev-list --reverse HEAD | head -n 1) && git merge -q origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)) && git so && while ! $(git cn); do true; done"
