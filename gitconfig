@@ -54,12 +54,12 @@
     st = status
     su = !"(git upre || true) && echo && git sr \"(git upre || true)\" && git sm -q sync && git ss"
 
-    cal = checkout aldebaran
-    cam = checkout amalthea
-    cde = checkout desktop
-    cma = checkout master
-    cpu = checkout public
-    cvs = checkout vserver
+    cal = !"git co aldebaran && git rebase -n origin/aldebaran"
+    cam = !"git co amalthea && git rebase -n origin/amalthea"
+    cde = !"git co desktop && git rebase -n origin/desktop"
+    cio = !"git co io && git rebase -n origin/io"
+    cma = !"git co master && git rebase -n origin/master"
+    cvs = !"git co vserver && git rebase -n origin/vserver"
 
     rde = rebase --verbose desktop
     rma = rebase --verbose master
