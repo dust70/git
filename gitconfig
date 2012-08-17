@@ -19,7 +19,7 @@
     cm = commit
     cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire && git fsck --unreachable --full && git prune && git gc --aggressive && git repack -Ad && git prune-packed"
     co = checkout
-    cp = cherry-pick --edit --no-commit
+    cp = cherry-pick --edit
     dt = difftool
     fe = fetch --prune --verbose --progress
     fm = !"git fe origin && git fe --tags origin"
