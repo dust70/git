@@ -57,6 +57,7 @@
     cal = !"git co aldebaran && git rebase -n origin/aldebaran"
     cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
+    chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
     cma = !"git co master && git rebase -n origin/master"
     cvs = !"git co vserver && git rebase -n origin/vserver"
