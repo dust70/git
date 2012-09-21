@@ -11,48 +11,49 @@
 
 [alias]
     ac = commit --all
-    ad = add --verbose --all --ignore-errors --
+    ad = add --all --ignore-errors --
     ba = branch -a --verbose
     br = branch --verbose
     ca = commit --amend -q
-    cl = clone --verbose --progress
+    cl = clone --progress
     cm = commit
-    cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire && git fsck --unreachable --full && git prune && git gc --aggressive && git repack -Ad && git prune-packed"
+    cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
-    cp = cherry-pick --edit
+    cp = cherry-pick
     dt = difftool
-    fe = fetch --prune --verbose --progress
+    fe = fetch --prune --progress
     fm = !"git fe origin && git fe --tags origin"
+    gr = grep --line-number --heading
     lg = log --stat
-    ls = ls-files --cached --modified --others --exclude-standard --
-    me = merge --stat --summary --verbose
+    ls = ls-files --cached --deleted --modified --others --stage --exclude-standard --
+    ma = merge --abort
+    me = merge --stat --summary
     mm = !"git me origin/$(git branch-name)"
     mt = mergetool --no-prompt
-    pa = push --all --verbose --progress origin
-    ph = push --tags --verbose --progress
-    pl = pull --verbose --progress --rebase
-    pm = !"git pl origin $(git branch-name)"
+    pa = push --all --progress origin
+    ph = push --tags --progress
     pu = !"git ph origin $(git branch-name)"
     ra = rebase --abort
     rc = rebase --continue
-    re = rebase --skip
+    re = reset
     rh = reset --hard
-    ri = rebase --interactive
+    ri = !"(git sa || true) && git rh $(git rev-list --reverse HEAD | head -n 1) && git merge --stat --summary origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)); (git so || true)"
+    rp = rebase --skip
     rs = reset --soft
     rv = remote --verbose
     sa = stash save
     sb = !"git br && git sr \"git br\""
     sc = stash clear
-    se = !"git ri $(git rev-list --reverse HEAD | head -n 1)"
+    se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
     sf = !"git sm foreach"
     sl = stash list
     sm = submodule
     so = stash pop
-    sp = !"git sf \"git pu; git st -s; echo\"; git pu; git st -s"
     sr = !"git sf --recursive"
     ss = !"git st && git sf \"git st -s; echo\" && git sm status --recursive"
     st = status
-    su = !"(git upre || true) && echo && git sr \"(git upre || true)\" && git sm -q sync && git ss"
+    su = !"git upre && echo && git sr \"git upre\" && git sm -q sync && git ss"
+    sw = stash show
 
     cal = !"git co aldebaran && git rebase -n origin/aldebaran"
     cam = !"git co amalthea && git rebase -n origin/amalthea"
@@ -74,7 +75,7 @@
 
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
-    upre = !"git fm -q && git sa; git rh $(git rev-list --reverse HEAD | head -n 1) && git merge -q origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)) && git so && while ! $(git cn); do true; done"
+    upre = !"git fm && git ri && while ! $(git cn); do true; done"
 
 [apply]
     ignorewhitespace = change
@@ -88,10 +89,9 @@
 
 [color]
     branch = auto
-    diff = false
-    grep = false
+    diff = auto
+    grep = auto
     interactive = auto
-    pager = false
     showbranch = auto
     status = auto
     ui = auto
@@ -199,4 +199,4 @@
     main-window-view = HistoryView
     show-graph = true
 
-# vim:filetype=gitconfig foldmethod=indent
+# vim: filetype=gitconfig foldmethod=indent
