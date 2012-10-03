@@ -118,6 +118,9 @@
     renames = copy
     tool = vimdiff
 
+[diff "odf"]
+    textconv=odt2txt
+
 [format]
     thread = deep
 
