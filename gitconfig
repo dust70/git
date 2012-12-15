@@ -61,6 +61,7 @@
     chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
     cma = !"git co master && git rebase -n origin/master"
+    cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
 
     rde = rebase --verbose desktop
