@@ -66,6 +66,7 @@
     rde = rebase --verbose desktop
     rma = rebase --verbose master
     rpu = rebase --verbose public
+    rse = rebase --verbose server
 
     scl = svn clone
     scm = svn dcommit
