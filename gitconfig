@@ -55,13 +55,13 @@
     su = !"git upre && echo && git sr \"git upre\" && git sm -q sync && git ss"
     sw = stash show
 
-    cal = !"git co aldebaran && git rebase -n origin/aldebaran"
     cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
+    cga = !"git co ganymed && git rebase -n origin/ganymed"
     chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
     cma = !"git co master && git rebase -n origin/master"
-    cvs = !"git co vserver && git rebase -n origin/vserver"
+    cse = !"git co server && git rebase -n origin/server"
 
     rde = rebase --verbose desktop
     rma = rebase --verbose master
