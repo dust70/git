@@ -31,6 +31,7 @@
     mm = !"git me origin/$(git branch-name)"
     mt = mergetool --no-prompt
     pa = push --all --progress origin
+    pg = !"git ph github $(git branch-name)"
     ph = push --tags --progress
     pu = !"git ph origin $(git branch-name)"
     ra = rebase --abort
