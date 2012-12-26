@@ -114,6 +114,9 @@
 [commit]
     status = true
 
+[credential]
+    helper = cache
+
 [diff]
     guitool = gvimdiff
     mnemonicprefix = true
