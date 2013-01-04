@@ -22,7 +22,7 @@
     cp = cherry-pick
     dt = difftool
     fe = fetch --prune --progress
-    fm = !"git fe origin && git fe --tags origin"
+    fm = !"git fe --all && git fe --all --tags"
     gr = grep --line-number --heading
     lg = log --stat
     ls = ls-files --cached --deleted --modified --others --stage --exclude-standard --
