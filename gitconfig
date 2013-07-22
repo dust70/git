@@ -10,14 +10,14 @@
     ignore-errors = true
 
 [alias]
-    ac = commit --all
+    ac = commit -s --all --branch --status
     ad = add --all --ignore-errors --
     ba = branch -a --verbose
     br = branch --verbose
-    ca = commit --amend -q
+    ca = commit -sq --branch --status --amend
     cf = checkout --quiet --force
     cl = clone --progress
-    cm = commit
+    cm = commit -s --branch --status
     cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     cp = cherry-pick
@@ -26,7 +26,7 @@
     fm = !"git fe --all && git fe --all --tags"
     gr = grep --line-number --heading
     lg = log --stat
-    ls = ls-files --cached --deleted --modified --others --stage --exclude-standard --
+    ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
     me = merge --stat --summary
     mm = !"git me origin/$(git branch-name)"
@@ -56,15 +56,25 @@
     st = status
     su = !"git upre && echo && git sr \"git upre\" && git sm -q sync && git ss"
     sw = stash show
+    tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
+
+    brup = !"git fm && git branch --column=never --list --no-color | xargs -I{} sh -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
 
     cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
     cga = !"git co ganymed && git rebase -n origin/ganymed"
     chi = !"git co himalia && git rebase -n origin/himalia"
-    cio = !"git co io && git rebase -n origin/io"
+    cly = !"git co lysithea && git rebase -n origin/lysithea"
     cma = !"git co master && git rebase -n origin/master"
     cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
+
+    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | \
+        xargs -I{} -0 sh -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
+    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name | \
+        xargs -I{} -0 sh -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+    remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | \
+        xargs -I{} -0 sh -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
 
     rde = rebase --verbose desktop
     rma = rebase --verbose master
