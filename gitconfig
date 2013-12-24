@@ -66,9 +66,9 @@
     cga = !"git co ganymed && git rebase -n origin/ganymed"
     chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
-    cly = !"git co lysithea && git rebase -n origin/lysithea"
+    ;cly = !"git co lysithea && git rebase -n origin/lysithea"
     cma = !"git co master && git rebase -n origin/master"
-    cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
+    ;cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
 
     add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | \
@@ -80,14 +80,7 @@
 
     rde = rebase --verbose desktop
     rma = rebase --verbose master
-    rpu = rebase --verbose public
     rse = rebase --verbose server
-
-    scl = svn clone
-    scm = svn dcommit
-    sfe = svn fetch
-    sgc = svn gc
-    slg = svn log --show-commit
 
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
