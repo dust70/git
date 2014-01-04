@@ -85,6 +85,7 @@
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
     upre = !"git fm && git ri && while ! $(git cn); do true; done"
+    uppush = !"git update && git pu"
 
 [apply]
     ignorewhitespace = change
