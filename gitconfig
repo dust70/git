@@ -41,7 +41,7 @@
     rc = rebase --continue
     re = reset
     rh = reset --hard
-    ri = !"(git sa || true) && git rh $(git rev-list --reverse HEAD | head -n 1) && git merge --stat --summary origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)); (git so || true)"
+    ri = !"(git sa || true) && git rh --quiet $(git rev-list --reverse HEAD | head -n 1) && git merge --quiet origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)); (git so || true)"
     rp = rebase --skip
     rs = reset --soft
     rv = remote --verbose
@@ -80,9 +80,9 @@
     remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | \
         xargs -I{} -0 sh -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
 
-    rde = rebase --verbose desktop
-    rma = rebase --verbose master
-    rse = rebase --verbose server
+    rde = rebase desktop
+    rma = rebase master
+    rse = rebase server
 
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
