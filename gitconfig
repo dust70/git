@@ -31,8 +31,8 @@
     me = merge --stat --summary
     mm = !"git me origin/$(git branch-name)"
     mt = mergetool --no-prompt
-    pa = push --all --progress origin
-    pd = push --delete --progress tags
+    pa = !"for i in $(git remote); do git push --all --progress ${i}; done"
+    pd = push --delete --progress --tags
     pf = !"git push --force --progress --tags origin $(git branch-name)"
     pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --tags
@@ -60,6 +60,7 @@
     sw = stash show
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
+    aliases = config --get-regexp "^alias"
     brup = !"git fm && git branch --column=never --list --no-color | xargs -I{} sh -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
 
     cam = !"git co amalthea && git rebase -n origin/amalthea"
