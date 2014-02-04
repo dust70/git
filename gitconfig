@@ -61,7 +61,7 @@
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
     aliases = config --get-regexp "^alias"
-    brup = !"git fm && git branch --column=never --list --no-color | xargs -I{} sh -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
+    brup = !"git fm && git branch --column=never --list --no-color | xargs -i{} sh -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
 
     cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
@@ -75,11 +75,11 @@
     cse = !"git co server && git rebase -n origin/server"
 
     add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | \
-        xargs -I{} -0 sh -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
+        xargs -i{} -0 sh -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
     update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name | \
-        xargs -I{} -0 sh -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+        xargs -i{} -0 sh -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
     remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | \
-        xargs -I{} -0 sh -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
+        xargs -i{} -0 sh -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
 
     rde = rebase desktop
     rma = rebase master
@@ -138,9 +138,9 @@
     name = odf diff driver
     textconv=odt2txt
 
-[diff "sqlite3"]   
-    name = sqlite3 diff driver  
-    command = diff-sqlite3 
+[diff "sqlite3"]
+    name = sqlite3 diff driver
+    command = diff-sqlite3
 
 [format]
     thread = deep
@@ -204,7 +204,7 @@
     showUntrackedFiles = all
 
 [user]
-    email = mail@rene-six.de
+    email = info@renatius.de
     name = René Six
     signingkey = 0xF91E87BC
 
@@ -219,12 +219,4 @@
     show-rev-graph = true
     tab-size = 4
 
-[giggle]
-    file-view-vpane-position = 800
-    history-view-vpane-position = 610
-    main-window-geometry = 1024x768+13+0
-    main-window-maximized = false
-    main-window-view = HistoryView
-    show-graph = true
-
-# vim: filetype=gitconfig foldmethod=indent
+# vim: filetype=gitconfig foldmethod=indent foldminlines=0
