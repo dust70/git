@@ -25,7 +25,7 @@
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
     gr = grep --line-number --heading
-    la = log --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --graph
+    la = !"GIT_PAGER=less git log --all --pretty=changelog --abbrev-commit --graph"
     lg = log --stat
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
@@ -140,14 +140,6 @@
     renames = copy
     tool = vimdiff
 
-[diff "odf"]
-    name = odf diff driver
-    textconv=odt2txt
-
-[diff "sqlite3"]
-    name = sqlite3 diff driver
-    command = diff-sqlite3
-
 [format]
     thread = deep
 
@@ -192,6 +184,9 @@
 
 [pack]
     compression = 9
+
+[pretty]
+    changelog = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 
 [push]
     default = matching
