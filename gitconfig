@@ -25,6 +25,7 @@
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
     gr = grep --line-number --heading
+    la = log --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --graph
     lg = log --stat
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
@@ -61,8 +62,6 @@
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
     aliases = config --get-regexp "^alias"
-    brup = !"git fm && git branch --column=never --list --no-color | xargs -i{} sh -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
-
     cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
     ceu = !"git co europa && git rebase -n origin/europa"
@@ -74,16 +73,23 @@
     ;cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
 
+    clo = !"git co development && git rebase -n origin/development"
+
+    brup = !"git fm && git branch --column=never --list --no-color | \
+        xargs -I {} sh -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
+
     add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | \
-        xargs -i{} -0 sh -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
+        xargs -I {} -0 sh -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
     update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name | \
-        xargs -i{} -0 sh -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+        xargs -I {} -0 sh -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
     remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | \
-        xargs -i{} -0 sh -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
+        xargs -I {} -0 sh -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
 
     rde = rebase desktop
     rma = rebase master
     rse = rebase server
+
+    rlo = rebase origin/development
 
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
@@ -153,7 +159,7 @@
 [gui]
     commitmsgwidth = 72
     diffcontext = 3
-    encoding = utf-8
+    encoding = UTF-8
     fontdiff = -family Terminus -size 8 -weight normal -slant roman -underline 0 -overstrike 0
     fontui = -family Terminus -size 8 -weight normal -slant roman -underline 0 -overstrike 0
     pruneduringfetch = true
@@ -164,8 +170,8 @@
     format = man
 
 [i18n]
-    commitEncoding = utf8
-    logOutputEncoding = utf8
+    commitEncoding = UTF-8
+    logOutputEncoding = UTF-8
 
 [interactive]
     singlekey = false
@@ -211,7 +217,7 @@
 [tig]
     author-width = 15
     horizontal-scroll = 95%
-    line-graphics = utf-8
+    line-graphics = UTF-8
     line-number-interval = 5
     show-date = true
     show-line-numbers = true
