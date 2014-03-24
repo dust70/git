@@ -62,6 +62,7 @@
 
     cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
+    ceu = !"git co europa && git rebase -n origin/europa"
     cga = !"git co ganymed && git rebase -n origin/ganymed"
     chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
