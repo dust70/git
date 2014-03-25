@@ -14,10 +14,10 @@
     ad = add --all --ignore-errors --
     ba = branch -a --verbose
     br = branch --verbose
-    ca = commit -sq --branch --status --amend
+    ca = commit -q --branch --status --amend
     cf = checkout --quiet --force
     cl = clone --progress
-    cm = commit -s --branch --status
+    cm = commit --branch --status
     cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     cp = cherry-pick
