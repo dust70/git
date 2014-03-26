@@ -1,0 +1,25 @@
+*.txt	whitspice
+
+# binary files or at least no text files
+*.asc		binary
+*.bz2		binary
+*.db		binary
+*.db-journal	binary
+*.dia		binary
+*.doc		binary
+*.docx		binary
+*.eps		binary
+*.gif		binary
+*.gpg		binary
+*.gz		binary
+*.ico		binary
+*.jpeg		binary
+*.jpg		binary
+*.keyring	binary
+*.keystore	binary
+*.pdf		binary
+*.png		binary
+*.tar.*		binary
+*.xls		binary
+*.xlsx		binary
+*.zip		binary
