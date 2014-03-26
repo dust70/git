@@ -10,7 +10,7 @@
     ignore-errors = true
 
 [alias]
-    ac = commit -s --all --branch --status
+    ac = commit --all --branch --status
     ad = add --all --ignore-errors --
     ba = branch -a --verbose
     br = branch --verbose
@@ -27,6 +27,7 @@
     gr = grep --line-number --heading
     la = !"GIT_PAGER=less git log --all --pretty=changelog --abbrev-commit --graph"
     lg = log --stat
+    lo = !"GIT_PAGER=less git log --pretty=changelog --abbrev-commit --graph"
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
     me = merge --stat --summary
