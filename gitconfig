@@ -28,6 +28,8 @@
     la = !"GIT_PAGER=less git log --all --pretty=changelog --abbrev-commit --graph"
     lg = log --stat
     lo = !"GIT_PAGER=less git log --pretty=changelog --abbrev-commit --graph"
+    lm = log --merges --stat
+    lp = log -10 --patch-with-stat
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
     me = merge --stat --summary
