@@ -25,9 +25,9 @@
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
     gr = grep --line-number --heading
-    la = !"GIT_PAGER=less git log --all --pretty=changelog --abbrev-commit --graph"
+    la = !"GIT_PAGER=less git log --all --pretty=graph --date=short --abbrev-commit --graph"
     lg = log --stat
-    lo = !"GIT_PAGER=less git log --pretty=changelog --abbrev-commit --graph"
+    lo = !"GIT_PAGER=less git log --pretty=graph --date=short --abbrev-commit --graph"
     lm = log --merges --stat
     lp = log -10 --patch-with-stat
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
@@ -189,7 +189,7 @@
     compression = 9
 
 [pretty]
-    changelog = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+    graph = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset
 
 [push]
     default = matching
