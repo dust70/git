@@ -214,13 +214,17 @@
 
 [tig]
     author-width = 15
+    diff-context = 5
     horizontal-scroll = 95%
     line-graphics = UTF-8
     line-number-interval = 5
+    mouse = true
+    refresh-mode = auto
     show-date = true
     show-line-numbers = true
     show-refs = true
     show-rev-graph = true
+    split-view-height = 75%
     tab-size = 4
 
 # vim: filetype=gitconfig foldmethod=indent foldminlines=0
