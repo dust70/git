@@ -218,8 +218,6 @@
     horizontal-scroll = 95%
     line-graphics = UTF-8
     line-number-interval = 5
-    mouse = true
-    refresh-mode = auto
     show-date = true
     show-line-numbers = true
     show-refs = true
