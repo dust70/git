@@ -181,10 +181,6 @@
     tool = vimdiff
     verbosity = 5
 
-[merge "sqlite3"]
-    name = sqlite3 merge driver
-    driver = merge-sqlite3 %O %A %B
-
 [pack]
     compression = 9
 
@@ -214,9 +210,10 @@
 
 [tig]
     author-width = 15
+    filename-width = 20
     diff-context = 5
     horizontal-scroll = 95%
-    line-graphics = UTF-8
+    line-graphics = utf-8
     line-number-interval = 5
     show-date = true
     show-line-numbers = true
