@@ -151,15 +151,6 @@
     reflogexpire = 1 day ago
     reflogexpireunreachable = 1 day ago
 
-[gui]
-    commitmsgwidth = 72
-    diffcontext = 3
-    encoding = UTF-8
-    fontdiff = -family Terminus -size 8 -weight normal -slant roman -underline 0 -overstrike 0
-    fontui = -family Terminus -size 8 -weight normal -slant roman -underline 0 -overstrike 0
-    pruneduringfetch = true
-    spellingdictionary = en_US
-
 [help]
     autocorrect = 10
     format = man
