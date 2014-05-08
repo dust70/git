@@ -116,7 +116,6 @@
     interactive = auto
     showbranch = auto
     status = auto
-    ui = auto
 
 [color "branch"]
     current = green normal bold
@@ -138,7 +137,6 @@
     helper = cache
 
 [diff]
-    guitool = gvimdiff
     mnemonicprefix = true
     renames = copy
     tool = vimdiff
@@ -156,8 +154,7 @@
     format = man
 
 [i18n]
-    commitEncoding = UTF-8
-    logOutputEncoding = UTF-8
+    logOutputEncoding = utf8
 
 [interactive]
     singlekey = false
@@ -201,16 +198,38 @@
 
 [tig]
     author-width = 15
+    commit-order = topo
     filename-width = 20
-    diff-context = 5
     horizontal-scroll = 95%
+    ignore-case = yes
     line-graphics = utf-8
     line-number-interval = 5
+    mouse = yes
+    mouse-scroll = 5
+    refresh-interval = 300
+    refresh-mode = periodic
     show-date = true
     show-line-numbers = true
     show-refs = true
     show-rev-graph = true
     split-view-height = 75%
     tab-size = 4
+    vertical-split = false
+
+    # View settings
+    main-view = line-number:yes,interval=5 id:no date:short author:abbreviated,width=15 commit-title:yes,graph=yes,refs=yes,overflow=no
+
+    # Pager based views
+    blob-view = line-number:yes,interval=5 text
+    diff-view = line-number:yes,interval=5 text:yes,commit-title-overflow=no
+    log-view = line-number:yes,interval=5 text
+    pager-view = line-number:yes,interval=5 text
+    stage-view = line-number:yes,interval=5 text
+
+[tig "color"]
+    default = default default normal
+    cursor = white blue bold
+    title-blur = blue default
+    title-focus = blue default bold
 
 # vim: filetype=gitconfig foldmethod=indent foldminlines=0
