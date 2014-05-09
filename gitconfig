@@ -25,6 +25,7 @@
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
     gr = grep --line-number --heading
+    l1 = !"GIT_PAGER=less git log -10 --pretty=short --notes --date=short"
     la = !"GIT_PAGER=less git log --all --pretty=graph --date=short --abbrev-commit --graph"
     lg = log --stat
     lo = !"GIT_PAGER=less git log --pretty=graph --date=short --abbrev-commit --graph"
