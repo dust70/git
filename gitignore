@@ -6,5 +6,6 @@
 *.REMOTE.*
 *.sw?
 *~
+.DS_Store
 \#*#
 doc/tags*
