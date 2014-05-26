@@ -13,6 +13,7 @@
     ac = commit --all --branch --status
     ad = add --all --ignore-errors --
     ba = branch -a --verbose
+    bc = checkout -b
     br = branch --verbose
     ca = commit -q --branch --status --amend
     cf = checkout --quiet --force
