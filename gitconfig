@@ -147,9 +147,9 @@
     thread = deep
 
 [gc]
-    pruneexpire = 1 day ago
-    reflogexpire = 1 day ago
-    reflogexpireunreachable = 1 day ago
+    pruneexpire = 4 weeks ago
+    reflogexpire = 4 weeks ago
+    reflogexpireunreachable = 4 weeks ago
 
 [help]
     autocorrect = 10
