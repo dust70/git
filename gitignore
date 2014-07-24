@@ -7,5 +7,11 @@
 *.sw?
 *~
 .DS_Store
+.vagrant
 \#*#
+composer.lock
+cscope.out
+cscope.out.in
+cscope.out.po
 doc/tags*
+tags
