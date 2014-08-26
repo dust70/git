@@ -204,21 +204,14 @@
     signingkey = 0xF91E87BC
 
 [tig]
-    author-width = 15
     commit-order = topo
-    filename-width = 20
     horizontal-scroll = 95%
     ignore-case = yes
     line-graphics = utf-8
-    line-number-interval = 5
     mouse = yes
     mouse-scroll = 5
     refresh-interval = 300
     refresh-mode = periodic
-    show-date = true
-    show-line-numbers = true
-    show-refs = true
-    show-rev-graph = true
     split-view-height = 75%
     tab-size = 4
     vertical-split = false
