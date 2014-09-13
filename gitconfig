@@ -74,9 +74,9 @@
     cga = !"git co ganymed && git rebase -n origin/ganymed"
     chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
-    ;cly = !"git co lysithea && git rebase -n origin/lysithea"
+    cly = !"git co lysithea && git rebase -n origin/lysithea"
     cma = !"git co master && git rebase -n origin/master"
-    ;cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
+    cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
 
     clo = !"git co development && git rebase -n origin/development"
