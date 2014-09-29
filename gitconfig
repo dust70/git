@@ -29,8 +29,8 @@
     l1 = !"GIT_PAGER=less git log -10 --pretty=short --notes --date=short"
     la = !"GIT_PAGER=less git log --all --pretty=graph --date=short --abbrev-commit --graph"
     lg = log --stat
-    lo = !"GIT_PAGER=less git log --pretty=graph --date=short --abbrev-commit --graph"
     lm = log --merges --stat
+    lo = !"GIT_PAGER=less git log --pretty=graph --date=short --abbrev-commit --graph"
     lp = log -10 --patch-with-stat
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
@@ -38,9 +38,9 @@
     mm = !"git me origin/$(git branch-name)"
     mt = mergetool --no-prompt
     pa = !"for i in $(git remote); do git push --all --progress ${i}; done"
-    pg = !"git ph --force bitbucket $(git branch-name)"
-    pd = push --delete --progress --tags
+    pd = push --delete --progress
     pf = !"git push --force --progress --tags origin $(git branch-name)"
+    pg = !"git ph --force bitbucket $(git branch-name)"
     pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --tags
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
