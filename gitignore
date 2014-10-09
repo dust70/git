@@ -10,8 +10,10 @@
 .vagrant
 \#*#
 composer.lock
+cscope.files
 cscope.out
 cscope.out.in
 cscope.out.po
 doc/tags*
+ncscope.out
 tags
