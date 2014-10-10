@@ -7,6 +7,7 @@
 *.sw?
 *~
 .DS_Store
+.fstemp.*
 .vagrant
 \#*#
 composer.lock
@@ -14,7 +15,7 @@ cscope.files
 cscope.out
 cscope.out.in
 cscope.out.po
+debug.log
 doc/tags*
 ncscope.out
 tags
-debug.log
