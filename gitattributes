@@ -1,4 +1,4 @@
-*.txt	whitspice
+*.txt		whitespice
 
 # binary files or at least no text files
 *.asc		binary
