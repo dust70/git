@@ -13,10 +13,12 @@
 *.gpg		binary
 *.gz		binary
 *.ico		binary
+*.jar		binary
 *.jpeg		binary
 *.jpg		binary
 *.keyring	binary
 *.keystore	binary
+*.mo		binary
 *.pdf		binary
 *.png		binary
 *.tar.*		binary
