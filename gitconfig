@@ -148,11 +148,6 @@
 [format]
     thread = deep
 
-[gc]
-    pruneexpire = 4 weeks ago
-    reflogexpire = 4 weeks ago
-    reflogexpireunreachable = 4 weeks ago
-
 [help]
     autocorrect = 10
     format = man
