@@ -20,7 +20,7 @@
     cf = checkout --quiet --force
     cl = clone --progress
     cm = commit --branch --status
-    cn = !"find . \\( -iname '*.orig' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' -o -name '*.BACKUP.*' \\) -delete && git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
+    cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     cp = cherry-pick
     dt = difftool
@@ -69,7 +69,6 @@
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
     aliases = config --get-regexp "^alias"
-    cam = !"git co amalthea && git rebase -n origin/amalthea"
     cde = !"git co desktop && git rebase -n origin/desktop"
     ceu = !"git co europa && git rebase -n origin/europa"
     cga = !"git co ganymed && git rebase -n origin/ganymed"
@@ -77,7 +76,6 @@
     cio = !"git co io && git rebase -n origin/io"
     cly = !"git co lysithea && git rebase -n origin/lysithea"
     cma = !"git co master && git rebase -n origin/master"
-    cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
 
     clo = !"git co development && git rebase -n origin/development"
@@ -167,6 +165,9 @@
     stat = true
     tool = vimdiff
     verbosity = 5
+
+[mergetool]
+    keepBackup = false
 
 [pack]
     compression = 9
