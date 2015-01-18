@@ -9,7 +9,8 @@
 .DS_Store
 .fstemp.*
 .vagrant
-\#*#
+.~lock.*\#
+\#*\#
 composer.lock
 cscope.files
 cscope.out
