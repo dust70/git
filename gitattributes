@@ -1,4 +1,4 @@
-*.txt		whitespice
+*.txt		whitespace
 
 # binary files or at least no text files
 *.asc		binary
@@ -21,6 +21,7 @@
 *.mo		binary
 *.pdf		binary
 *.png		binary
+*.psd		binary
 *.tar.*		binary
 *.xls		binary
 *.xlsx		binary
