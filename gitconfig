@@ -15,6 +15,7 @@
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
+    bD = branch --verbose -D
     br = branch --verbose
     ca = commit -q --branch --status --amend
     cf = checkout --quiet --force
