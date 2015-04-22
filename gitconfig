@@ -18,6 +18,7 @@
     bD = branch --verbose -D
     br = branch --verbose
     ca = commit -q --branch --status --amend
+    cA = cherry-pick --abort
     cf = checkout --quiet --force
     cl = clone --progress
     cm = commit --branch --status
