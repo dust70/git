@@ -24,7 +24,6 @@
     cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     cp = cherry-pick
-    cpa = cherry-pick --abort
     dt = difftool
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
@@ -71,16 +70,18 @@
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
     aliases = config --get-regexp "^alias"
+
+    cma = !"git co master && git rebase -n origin/master"
+    clo = !"git co development && git rebase -n origin/development"
+
     cde = !"git co desktop && git rebase -n origin/desktop"
     ceu = !"git co europa && git rebase -n origin/europa"
     cga = !"git co ganymed && git rebase -n origin/ganymed"
     chi = !"git co himalia && git rebase -n origin/himalia"
     cio = !"git co io && git rebase -n origin/io"
     cly = !"git co lysithea && git rebase -n origin/lysithea"
-    cma = !"git co master && git rebase -n origin/master"
+    cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
-
-    clo = !"git co development && git rebase -n origin/development"
 
     brup = !"git fm && git branch --column=never --list --no-color | \
         xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
