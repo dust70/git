@@ -69,8 +69,6 @@
     sw = stash show
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
-    aliases = config --get-regexp "^alias"
-
     cma = !"git co master && git rebase -n origin/master"
     clo = !"git co development && git rebase -n origin/development"
 
@@ -83,6 +81,16 @@
     cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
     cse = !"git co server && git rebase -n origin/server"
 
+    rde = rebase desktop
+    rma = rebase master
+    rse = rebase server
+
+    rlo = rebase origin/development
+
+    mdo = merge origin/development
+    mma = merge origin/master
+
+    aliases = config --get-regexp "^alias"
     brup = !"git fm && git branch --column=never --list --no-color | \
         xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
 
@@ -92,12 +100,6 @@
         xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
     remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | \
         xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
-
-    rde = rebase desktop
-    rma = rebase master
-    rse = rebase server
-
-    rlo = rebase origin/development
 
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     total-clean = "!git co -f && git clean -dfx && git clean -dfX"
