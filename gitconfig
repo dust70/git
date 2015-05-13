@@ -69,8 +69,8 @@
     sw = stash show
     tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
-    cma = !"git co master && git rebase -n origin/master"
     clo = !"git co development && git rebase -n origin/development"
+    cma = !"git co master && git rebase -n origin/master"
 
     cde = !"git co desktop && git rebase -n origin/desktop"
     ceu = !"git co europa && git rebase -n origin/europa"
@@ -87,7 +87,7 @@
 
     rlo = rebase origin/development
 
-    mdo = merge origin/development
+    mlo = merge origin/development
     mma = merge origin/master
 
     aliases = config --get-regexp "^alias"
