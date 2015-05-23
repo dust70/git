@@ -72,6 +72,7 @@
     clo = !"git co development && git rebase -n origin/development"
     cma = !"git co master && git rebase -n origin/master"
 
+    can = !"git co ananke && git rebase -n origin/ananke"
     cde = !"git co desktop && git rebase -n origin/desktop"
     ceu = !"git co europa && git rebase -n origin/europa"
     cga = !"git co ganymed && git rebase -n origin/ganymed"
