@@ -55,6 +55,7 @@
     rs = reset --soft
     rv = remote --verbose
     sa = stash save
+    saa = stash save --all
     sb = !"git br && git sr \"git br\""
     sc = stash clear
     se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
