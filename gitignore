@@ -8,9 +8,10 @@
 *~
 .DS_Store
 .fstemp.*
-.vagrant
+.vagrant/
 .~lock.*\#
 \#*\#
+build/
 cscope.files
 cscope.out
 cscope.out.in
