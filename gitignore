@@ -8,16 +8,13 @@
 *~
 .DS_Store
 .fstemp.*
-.vagrant/
 .~lock.*\#
 \#*\#
-build/
 cscope.files
 cscope.out
 cscope.out.in
 cscope.out.po
 debug.log
-doc/tags*
 ncscope.out
 sync.log
 tags
