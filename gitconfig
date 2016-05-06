@@ -58,6 +58,7 @@
     sa = stash save
     saa = stash save --all
     sb = !"git br && git sr \"git br\""
+    sbb = show-branch
     sc = stash clear
     se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
     sf = !"git sm foreach"
