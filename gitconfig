@@ -28,6 +28,7 @@
     dt = difftool
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
+    gp = grep --line-number --break --heading
     gr = grep --ignore-case --line-number --break --heading
     l1 = !"GIT_PAGER=less git log -10 --pretty=short --notes --date=short"
     la = !"GIT_PAGER=less git log --all --pretty=graph --date=short --abbrev-commit --graph"
