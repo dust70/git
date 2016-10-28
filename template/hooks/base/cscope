@@ -1,0 +1,25 @@
+#!/bin/bash
+
+source "${GIT_DIR}"/hooks/config.sh
+
+FILES="${GIT_DIR}"/files.$$
+MOVE=1
+OUTFILE="${GIT_DIR}"/cscope.out
+
+build()
+{
+    case "${1}" in
+        'php')
+            find "${PROJECT_DIR}" -type f \( -iname '*.php' -a ! -iname '*test.php' \) > "${FILES}"
+            ;;
+    esac
+
+    cscope -b -q -i "${FILES}" -f "${OUTFILE}" > /dev/null
+    rm --force "${FILES}" "${OUTFILE}"
+}
+
+if which cscope > /dev/null 2>&1; then
+    trap "rm --force \"${FILES}\" \"${OUTFILE}\"" EXIT
+
+    build "${1}"
+fi
