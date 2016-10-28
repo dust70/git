@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PROJECT_DIR="${PWD}"
+RESULT=-124
+
+check_ant()
+{
+    ant check; RESULT=$?
+    return ${RESULT}
+}
+
+if which ant > /dev/null 2>&1 && [ -e "${PROJECT_DIR}"/build.xml ]; then
+    check_ant; RESULT=$?
+fi
+
+exit ${RESULT}
