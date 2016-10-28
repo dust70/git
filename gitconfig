@@ -16,7 +16,6 @@
     bc = checkout -b
     bd = branch --verbose --delete
     bdd = branch --verbose -D
-    bi = besect
     br = branch --verbose
     ca = commit -q --branch --status --amend
     cf = checkout --quiet --force
@@ -71,7 +70,6 @@
     st = status
     su = !"git upre && echo && git sr \"git upre\" && git sm -q sync && git ss"
     sw = stash show
-    tg = !"git tag -s -m $(date '+%F') $(date '+%F')"
 
     clo = !"git co development && git rebase -n origin/development"
     cma = !"git co master && git rebase -n origin/master"
@@ -107,7 +105,6 @@
         xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
 
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
-    total-clean = "!git co -f && git clean -dfx && git clean -dfX"
     upre = !"git fm && git ri && while ! $(git cn >| /dev/null); do true; done"
     uppush = !"git update && git pu"
 
@@ -163,6 +160,9 @@
 [i18n]
     logOutputEncoding = utf8
 
+[init]
+    templatedir = ~/.git_template
+
 [interactive]
     singlekey = false
 
@@ -207,7 +207,6 @@
 [user]
     email = info@renatius.de
     name = René Six
-    signingkey = 0xF91E87BC
 
 [tig]
     commit-order = topo
