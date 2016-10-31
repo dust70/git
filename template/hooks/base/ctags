@@ -21,11 +21,11 @@ build()
         cp "${OUTFILE}" "${GIT_DIR}"/tags
     fi
 
-    rm --force "${FILES}" "${OUTFILE}"
+    rm -f "${FILES}" "${OUTFILE}"
 }
 
 if which ctags > /dev/null 2>&1; then
-    trap "rm --force \"${FILES}\" \"${OUTFILE}\"" EXIT
+    trap "rm -f \"${FILES}\" \"${OUTFILE}\"" EXIT
 
     build "${1}"
 fi
