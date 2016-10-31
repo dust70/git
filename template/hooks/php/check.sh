@@ -5,8 +5,8 @@ source "${HOOKS_DIR}"/base/change_detector.sh
 
 build_base()
 {
-    "${HOOKS_DIR}"/base/ctags "${1}"
-    "${HOOKS_DIR}"/base/cscope "${1}"
+    "${HOOKS_DIR}"/base/ctags "${1}" &
+    "${HOOKS_DIR}"/base/cscope "${1}" &
 }
 
 build_php()

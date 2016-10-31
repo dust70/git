@@ -19,4 +19,4 @@ if [ ! -x "${COMPOSER}" ]; then
     rm -f ./composer-setup.php
 fi
 
-php "${COMPOSER}" install --no-interaction --optimize-autoloader --prefer-source --quiet
+php "${COMPOSER}" install --no-interaction --optimize-autoloader --prefer-source
