@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PROJECT_DIR="${PWD}"
+RESULT=-1
+
+check()
+{
+    mvn validate test-compile test integration-test verify; RESULT=$?
+    return ${RESULT}
+}
+
+if which mvn > /dev/null 2>&1 && [ -e "${PROJECT_DIR}"/src/main/resources/applicationContext.xml ]; then
+    check; RESULT=$?
+else
+    RESULT=0
+fi
+
+echo ${$RESULT}
