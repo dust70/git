@@ -11,7 +11,8 @@
 
 [alias]
     ac = commit --all --branch --status
-    ad = add --all --ignore-errors --
+    ad = add --all --
+    ai = add --interactive --all --
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
@@ -19,11 +20,10 @@
     br = branch --verbose
     ca = commit -q --branch --status --amend
     cf = checkout --quiet --force
-    cl = clone --progress
+    cl = clone --progress --template=~/.git_template
     cm = commit --branch --status
     cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
-    cp = cherry-pick
     dt = difftool
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
@@ -58,7 +58,6 @@
     sa = stash save
     saa = stash save --all
     sb = !"git br && git sr \"git br\""
-    sbb = show-branch
     sc = stash clear
     se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
     sf = !"git sm foreach"
@@ -74,36 +73,19 @@
     clo = !"git co development && git rebase -n origin/development"
     cma = !"git co master && git rebase -n origin/master"
 
-    can = !"git co ananke && git rebase -n origin/ananke"
-    cde = !"git co desktop && git rebase -n origin/desktop"
-    ceu = !"git co europa && git rebase -n origin/europa"
-    cga = !"git co ganymed && git rebase -n origin/ganymed"
-    chi = !"git co himalia && git rebase -n origin/himalia"
-    cio = !"git co io && git rebase -n origin/io"
-    cly = !"git co lysithea && git rebase -n origin/lysithea"
-    cpa = !"git co pasiphae && git rebase -n origin/pasiphae"
-    cse = !"git co server && git rebase -n origin/server"
-
-    rde = rebase desktop
-    rma = rebase master
-    rse = rebase server
-
-    rlo = rebase origin/development
-
-    mlo = merge origin/development
-    mma = merge origin/master
+    mlo = !"git me origin/development"
+    mma = !"git me origin/master"
 
     aliases = config --get-regexp "^alias"
-    brup = !"git fm && git branch --column=never --list --no-color | \
-        xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
-
-    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | \
-        xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
-    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name | \
-        xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
-    remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | \
-        xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
-
+    brup = !"git fm && git branch --column=never --list --no-color|" \
+        "xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
+    changelog = "!git log --date='short' --pretty=format:'%ad %an %s %N' --reverse"
+    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
+        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
+    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
+        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+    remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name|" \
+        "xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     upre = !"git fm && git ri && while ! $(git cn >| /dev/null); do true; done"
     uppush = !"git update && git pu"
