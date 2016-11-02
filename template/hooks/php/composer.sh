@@ -1,5 +1,6 @@
 #!/bin/bash
 
+GIT_DIR="${GIT_DIR:-${PWD}/.git}"
 source "${GIT_DIR}"/hooks/config.sh
 
 COMPOSER_DIR="${PROJECT_DIR}"/bin
