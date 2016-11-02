@@ -15,7 +15,7 @@ build()
             ;;
     esac
 
-    cscope -b -q -i "${FILES}" -f "${OUTFILE}" > /dev/null
+    cscope -b -q -i "${FILES}" -f "${OUTFILE}" > /dev/null 2>&1
     rm -f "${FILES}" "${OUTFILE}"
 }
 
