@@ -1,5 +1,5 @@
 #!/bin/bash -u
 
-source "${GIT_DIR}"/hooks/config.sh
+HOOKS_DIR="${PWD}"/.git/hooks
 
 "${HOOKS_DIR}"/php/check.sh post-merge
