@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "${PWD}"/.git/hooks/config.sh
+HOOKS_DIR="${PWD}"/.git/hooks
 
 case "${1}" in
     rebase)
