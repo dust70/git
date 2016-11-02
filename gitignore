@@ -12,6 +12,9 @@
 .fstemp.*
 .~lock.*\#
 \#*\#
+composer
+composer-setup.php
+composer.phar
 cscope.files
 cscope.out
 cscope.out.in
