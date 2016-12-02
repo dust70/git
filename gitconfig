@@ -43,7 +43,7 @@
     pa = !"for i in $(git remote); do git push --all --progress ${i}; done"
     pd = push --delete --progress origin
     pf = !"git push --force --progress --tags origin $(git branch-name)"
-    pn = push --delete --no-verify --progress origin
+    pn = push --no-verify --progress origin
     pg = !"git ph --force bitbucket $(git branch-name)"
     pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --tags
