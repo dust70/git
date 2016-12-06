@@ -5,7 +5,7 @@ RESULT=-1
 
 check()
 {
-    mvn validate test-compile test integration-test verify; RESULT=$?
+    mvn test integration-test; RESULT=$?
     return ${RESULT}
 }
 
