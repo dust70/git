@@ -114,12 +114,6 @@
     nobranch = red white blink
     untracked = red normal bold
 
-[column]
-    branch = auto
-    clean = auto
-    tag = auto
-    ui = auto
-
 [commit]
     status = true
     template = .git/info/commit.msg
