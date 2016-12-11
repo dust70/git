@@ -14,12 +14,12 @@ if [ "$allownonascii" != "true" ] &&
         | LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
 then
     cat << \EOF
-    Error: Attempt to add a non-ASCII file name.
-    This can cause problems if you want to work with people on other platforms.
-    To be portable it is advisable to rename the file.
-    If you know what you are doing you can disable this check using:
+Error: Attempt to add a non-ASCII file name.
+This can cause problems if you want to work with people on other platforms.
+To be portable it is advisable to rename the file.
+If you know what you are doing you can disable this check using:
     git config hooks.allownonascii true
-    EOF
+EOF
     exit 1
 fi
 

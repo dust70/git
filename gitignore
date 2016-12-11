@@ -19,6 +19,7 @@
 .externalToolBuilders/
 .factorypath
 .fstemp.*
+.idea
 .loadpath
 .metadata
 .nb-gradle/
