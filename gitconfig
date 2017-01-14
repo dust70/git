@@ -14,6 +14,7 @@
     cm = commit --branch --status
     cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
+    dt = difftool
     fe = fetch --prune --progress
     fm = !"git fe --all && git fe --all --tags"
     gr = grep --ignore-case --line-number --break --heading
