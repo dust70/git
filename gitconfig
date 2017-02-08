@@ -30,10 +30,10 @@
     mm = !"git me origin/$(git branch-name)"
     mt = mergetool --no-prompt
     pd = push --delete --no-verify --progress origin
-    pf = !"git push --force --progress --tags origin $(git branch-name)"
-    pn = push --no-verify --progress origin
+    pf = !"git ph --force origin $(git branch-name)"
     pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --tags
+    pn = !"git ph --no-verify origin $(git brach-name)"
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
     ra = rebase --abort
     rc = rebase --continue
