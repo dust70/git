@@ -33,7 +33,7 @@
     pf = !"git ph --force origin $(git branch-name)"
     pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --tags
-    pn = !"git ph --no-verify origin $(git brach-name)"
+    pn = !"git ph --no-verify origin $(git branch-name)"
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
     ra = rebase --abort
     rc = rebase --continue
