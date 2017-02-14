@@ -43,7 +43,7 @@
     rp = rebase --skip
     rs = reset --soft
     rv = remote --verbose
-    sa = stash save
+    sa = stash save --include-untracked
     sb = !"git br && git sr \"git br\""
     sc = stash clear
     se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
