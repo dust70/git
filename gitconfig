@@ -50,6 +50,7 @@
     se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
     sf = !"git submodule foreach"
     sl = stash list
+    sm = submodule
     so = stash pop
     sr = !"git sf --recursive"
     ss = !"git st && git sf \"git st -s; echo\" && git submodule status --recursive"
