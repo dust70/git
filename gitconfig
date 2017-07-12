@@ -113,7 +113,7 @@
 
 [core]
     compression = 9
-    editor = nvim
+    editor = vim
     eol = lf
     excludesfile = ~/.gitignore
     loosecompression = 9
@@ -126,7 +126,7 @@
 [diff]
     mnemonicprefix = true
     renames = copy
-    tool = nvim -d
+    tool = vimdiff
 
 [format]
     thread = deep
