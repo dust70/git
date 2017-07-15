@@ -4,4 +4,7 @@ test -d "$GIT_DIR"/rebase-merge -o -d "$GIT_DIR"/rebase-apply && exit 0
 
 source "${GIT_DIR}"/hooks/config.sh
 
-"${HOOKS_DIR}"/php/check.sh post-checkout
+if [ "${1}" != "${2}" ] && [ "${3}" = 1 ]; then # has new commits and is branch checkout
+    "${HOOKS_DIR}"/php/check.sh post-checkout
+    "${HOOKS_DIR}"/npm/install.sh post-checkout
+fi

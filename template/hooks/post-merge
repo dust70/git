@@ -3,3 +3,4 @@
 HOOKS_DIR="${PWD}"/.git/hooks
 
 "${HOOKS_DIR}"/php/check.sh post-merge
+"${HOOKS_DIR}"/npm/install.sh post-marge
