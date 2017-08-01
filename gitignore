@@ -34,7 +34,8 @@
 \#*\#
 bin/
 build/
-composer*
+composer
+composer.phar
 cscope.*
 debug.log
 dist/
