@@ -1,7 +1,5 @@
 #!/bin/bash
 
-test -z "${SKIP_POST_CHECKOUT}" && exit 0
-
 HOOKS_DIR="${PWD}"/.git/hooks
 
 case "${1}" in
