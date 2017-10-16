@@ -4,6 +4,7 @@
 *.REMOTE.*
 *.bak
 *.launch
+*.log
 *.orig
 *.pydevproject
 *.sw?
@@ -12,6 +13,7 @@
 *~.nib
 .DS_Store
 .buildpath
+.checkstyle
 .classpath
 .cproject
 .eclipse*
@@ -37,12 +39,10 @@ build/
 composer
 composer.phar
 cscope.*
-debug.log
 dist/
 local.properties
 nbbuild/
 nbdist/
 nbproject/private/
-sync.log
 tags
-tmp/
+tmp
