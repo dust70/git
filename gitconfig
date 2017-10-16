@@ -15,7 +15,7 @@
     cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     dt = difftool
-    fe = fetch --prune --progress
+    fe = fetch --progress
     fm = !"git fe --all && git fe --all --tags"
     ge = grep --extended-regexp --line-number --break --heading
     gr = grep --ignore-case --extended-regexp --line-number --break --heading
@@ -81,7 +81,8 @@
     whitespace = nowarn
 
 [branch]
-    autosetuprebase = always
+    autoSetupMerge = always
+    autoSetupRebase = always
 
 [clean]
     requireForce = true
@@ -124,15 +125,20 @@
     helper = cache
 
 [diff]
+    ignoreSubmodules = true
     mnemonicprefix = true
-    renames = copy
-    tool = vimdiff
+
+[fetch]
+    prune = true
+    recurseSubmodules = true
 
 [format]
     thread = deep
 
+[grep]
+    lineNumber = true
+
 [help]
-    autocorrect = 10
     format = man
 
 [i18n]
@@ -143,7 +149,7 @@
 
 [log]
     date = iso
-    showroot = true
+    showRoot = true
 
 [merge]
     log = true
@@ -153,6 +159,7 @@
 
 [mergetool]
     keepBackup = false
+    writeToTemp = true
 
 [pack]
     compression = 9
@@ -160,17 +167,17 @@
 [pretty]
     graph = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset
 
+[pull]
+    ff = only
+
 [push]
     default = matching
 
 [rebase]
-    autosquash = true
+    autoSquash = true
+    autoStash = true
     stat = true
 
-[receive]
-    autogc = true
-    fsckObjects = true
-    updateserverinfo = true
 
 [rerere]
     enabled = true
