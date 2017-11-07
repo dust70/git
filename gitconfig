@@ -110,11 +110,10 @@
 
 [commit]
     status = true
-    template = .git/info/commit.msg
+    template = ~/.git/commit.msg
 
 [core]
     compression = 9
-    editor = vim
     eol = lf
     excludesfile = ~/.gitignore
     loosecompression = 9
@@ -188,6 +187,9 @@
 [user]
     email = info@renatius.de
     name = René Six
+
+[includeIf "gitdir:~/git/profitmax/*"]
+    path = ~/.git/gitconfig-profitmax
 
 [tig]
     commit-order = topo
