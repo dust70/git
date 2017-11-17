@@ -176,7 +176,6 @@
     autoStash = true
     stat = true
 
-
 [rerere]
     enabled = true
 
