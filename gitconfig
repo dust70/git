@@ -4,6 +4,7 @@
 [alias]
     ac = commit --all --branch --status
     ad = add --all --
+    ai = add --interactive --
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
