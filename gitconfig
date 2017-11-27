@@ -8,12 +8,13 @@
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
-    bdd = branch --verbose -D
+    bdd = branch --verbose --delete --force
     ca = commit -q --branch --status --amend
     cf = checkout --quiet --force
     cl = !"git clone --progress --template=~/.git/template"
     cm = commit --branch --status
-    cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
+    cn = !"git reflog expire --all && git fsck --unreachable --full && " \
+        "git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     dt = difftool
     fe = fetch --progress
@@ -33,7 +34,6 @@
     mt = mergetool --no-prompt
     pd = push --delete --no-verify --progress origin
     pf = !"git ph --force origin $(git branch-name)"
-    pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --tags
     pn = !"git ph --no-verify origin $(git branch-name)"
     pt = push --no-verify --progress --tags
@@ -42,7 +42,6 @@
     rc = rebase --continue
     re = reset
     rh = reset --hard
-    ri = !"(git sa || true) && git rh --quiet $(git rev-list --reverse HEAD | head -n 1) && git merge --quiet origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)); (git so || true)"
     rp = rebase --skip
     rs = reset --soft
     rv = remote --verbose
@@ -66,6 +65,8 @@
     mma = !"git me origin/master"
 
     aliases = config --get-regexp "^alias"
+    bclean = !"git for-each-ref --format '%(refname:short)' refs/heads | grep -Ev 'master|development'" \
+        "| xargs git branch -d"
     brup = !"git fm && git branch --column=never --list --no-color|" \
         "xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
     add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
