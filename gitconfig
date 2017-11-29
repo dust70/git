@@ -64,19 +64,22 @@
     mlo = !"git me origin/development"
     mma = !"git me origin/master"
 
+    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
+        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
     aliases = config --get-regexp "^alias"
     bclean = !"git for-each-ref --format '%(refname:short)' refs/heads | grep -Ev 'master|development'" \
         "| xargs git branch -d"
+    branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     brup = !"git fm && git branch --column=never --list --no-color|" \
-        "xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git ri >> /dev/null' && git cma"
-    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
-    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+        "xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git reset-all >> /dev/null' && git cma"
     remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name|" \
         "xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
-    branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
-    upre = !"git fm && git ri && while ! $(git cn >| /dev/null); do true; done"
+    reset-all = !"(git sa || true) && git rh --quiet $(git rev-list --reverse HEAD | head -n 1) && "\
+        "git merge --quiet origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)); "\
+        "(git so || true)"
+    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
+        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+    upre = !"git fm && git reset-all && while ! $(git cn >| /dev/null); do true; done"
 
 [apply]
     ignorewhitespace = change
