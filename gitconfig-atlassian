@@ -1,4 +1,4 @@
-[user]
-    email = rs@profitmax.de
+[commit]
+    template = ~/.git/commit-atlassian.msg
 
 # vim: filetype=gitconfig foldmethod=indent foldminlines=0

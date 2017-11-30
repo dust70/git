@@ -117,6 +117,9 @@
     status = true
     template = ~/.git/commit.msg
 
+[includeIf "gitdir:~/git/profitmax/*"]
+    path = ~/.git/gitconfig-atlassian
+
 [core]
     compression = 9
     eol = lf
