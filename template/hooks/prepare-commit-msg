@@ -1,6 +1,5 @@
 #!/bin/bash
 
-BRANCH_PATH=$(git symbolic-ref -q HEAD)
-BRANCH_NAME=${BRANCH_PATH##*/}
+BRANCH_NAME=$(git symbolic-ref --short --quiet HEAD | sed -e "s;\([A-Z]*\)-\([0-9]*\)-.*;[\1-\2];g")
 
 sed -ie "s/BRANCHNAME/${BRANCH_NAME}/g" $1
