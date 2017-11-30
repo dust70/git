@@ -160,7 +160,7 @@
 [merge]
     log = true
     stat = true
-    tool = vimdiff
+    tool = vimdiff3
     verbosity = 5
 
 [mergetool]
