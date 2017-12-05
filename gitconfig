@@ -67,7 +67,7 @@
     add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
         "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
     aliases = config --get-regexp "^alias"
-    bclean = !"git for-each-ref --format '%(refname:short)' refs/heads | " \
+    bclean = !"git for-each-ref --format='%(refname:short)' refs/heads | " \
         "grep -Ev 'master|development' | xargs git bd"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
     brup = !"git fm && git branch --column=never --list --no-color|" \
@@ -75,8 +75,7 @@
     remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name|" \
         "xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
     reset-all = !"(git sa || true) && git rh --quiet $(git rev-list --reverse HEAD | head -n 1) && "\
-        "git merge --quiet origin/$(git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)); "\
-        "(git so || true)"
+        "git merge --quiet origin/$(git branch-name); (git so || true)"
     update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
         "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
     upre = !"git fm && git reset-all && while ! $(git cn >| /dev/null); do true; done"
@@ -203,8 +202,7 @@
     horizontal-scroll = 95%
     ignore-case = yes
     line-graphics = utf-8
-    mouse = yes
-    mouse-scroll = 5
+    mouse = no
     refresh-interval = 300
     refresh-mode = periodic
     split-view-height = 75%
