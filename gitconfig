@@ -121,6 +121,7 @@
 
 [core]
     compression = 9
+    editor = vim
     eol = lf
     excludesfile = ~/.gitignore
     loosecompression = 9
