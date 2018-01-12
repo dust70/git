@@ -2,17 +2,17 @@
     ignore-errors = true
 
 [alias]
-    ac = commit --all --branch --status
+    ac = commit --all --branch --status --verbose
     ad = add --all --
     ai = add --interactive --
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
     bdd = branch --verbose --delete --force
-    ca = commit -q --branch --status --amend
+    ca = commit -q --amend --branch --status --verbose
     cf = checkout --quiet --force
     cl = !"git clone --progress --template=~/.git/template"
-    cm = commit --branch --status
+    cm = commit --branch --status --verbose
     cn = !"git reflog expire --all && git fsck --unreachable --full && " \
         "git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
