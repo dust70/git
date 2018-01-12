@@ -34,9 +34,9 @@
     mt = mergetool --no-prompt
     pd = push --delete --no-verify --progress origin
     pf = !"git ph --force origin $(git branch-name)"
-    ph = push --progress --tags
+    ph = push --progress --set-upstream --tags
     pn = !"git ph --no-verify origin $(git branch-name)"
-    pt = push --no-verify --progress --tags
+    pt = push --no-verify --progress --set-upstream --tags
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
     ra = rebase --abort
     rc = rebase --continue
@@ -178,6 +178,8 @@
 
 [push]
     default = matching
+    followTags = true
+    recurseSubmodules = on-demand
 
 [rebase]
     autoSquash = true
