@@ -56,7 +56,7 @@
     sr = !"git sf --recursive"
     ss = !"git st && git sf \"git st -s; echo\" && git submodule status --recursive"
     st = status
-    su = !"git upre && echo && git sr \"git upre\" && git submodule -q sync && git ss"
+    su = !"git pull && echo && git sr \"git pull\" && git submodule -q sync && git ss"
 
     clo = !"git co development && git rebase -n origin/development"
     cma = !"git co master && git rebase -n origin/master"
@@ -78,7 +78,6 @@
         "git merge --quiet origin/$(git branch-name); (git so || true)"
     update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
         "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
-    upre = !"git fm && git reset-all && while ! $(git cn >| /dev/null); do true; done"
 
 [apply]
     ignorewhitespace = change
