@@ -1,4 +1,0 @@
-[submodule "GitIgnoreRepo"]
-	path = GitIgnoreRepo
-	url = git://github.com/github/gitignore.git
-	branch = master
