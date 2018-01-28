@@ -11,3 +11,7 @@ install:
 	ln -snf ${SOURCE} ${HOME}/.git
 	ln -snf ${SOURCE}/gitconfig ${HOME}/.gitconfig
 	ln -snf ${SOURCE}/gitignore ${HOME}/.gitignore
+
+update:
+	git --work-tree=GitIgnoreRepo checkout -f
+	git --work-tree=GitIgnoreRepo pull
