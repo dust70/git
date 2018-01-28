@@ -11,7 +11,7 @@
     bdd = branch --verbose --delete --force
     ca = commit -q --amend --branch --status --verbose
     cf = checkout --quiet --force
-    cl = !"git clone --progress --template=~/.git/template"
+    cl = !"git clone --progress"
     cm = commit --branch --status --verbose
     cn = !"git reflog expire --all && git fsck --unreachable --full && " \
         "git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
