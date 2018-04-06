@@ -8,7 +8,6 @@ clean:
 install:
 	git clone git://github.com/github/gitignore.git GitIgnoreRepo
 	ln -snf ${ROOT_DIR}/gitconfig ${HOME}/.gitconfig
-	ln -snf ${ROOT_DIR}/gitignore ${HOME}/.gitignore
 
 update:
 	git --work-tree=GitIgnoreRepo checkout -f
