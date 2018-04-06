@@ -117,7 +117,7 @@
     template = ~/.git/commit.msg
 
 [includeIf "gitdir:~/git/profitmax/*"]
-    path = ~/.git/gitconfig-atlassian
+    path = ~/.git/config-atlassian
 
 [core]
     compression = 9
@@ -212,7 +212,7 @@
     useConfigOnly = true
 
 [includeIf "gitdir:~/git/profitmax/*"]
-    path = ~/.git/gitconfig-profitmax
+    path = ~/.git/config-profitmax
 
 [tig]
     commit-order = topo

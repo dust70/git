@@ -7,7 +7,7 @@ clean:
 
 install:
 	git clone git://github.com/github/gitignore.git GitIgnoreRepo
-	ln -snf ${ROOT_DIR}/gitconfig ${HOME}/.gitconfig
+	ln -snf ${ROOT_DIR}/config ${HOME}/.gitconfig
 
 update:
 	git --work-tree=GitIgnoreRepo checkout -f
