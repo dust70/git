@@ -19,13 +19,14 @@
     dt = difftool
     fe = fetch --progress
     fm = !"git fe --all && git fe --all --tags"
-    ge = grep --extended-regexp --line-number --break --heading
-    gr = grep --ignore-case --extended-regexp --line-number --break --heading
+    ge = grep --break --heading --show-function
+    gf = !"git ge --function-context"
+    gr = !"git ge --ignore-case"
     l10 = !"GIT_PAGER=less git log -10 --pretty=short --notes --date=short"
-    la = !"GIT_PAGER=less git log --all --pretty=graph --date=short --abbrev-commit --graph"
-    lg = log --stat
-    lm = log --merges --stat
-    lo = !"GIT_PAGER=less git log --pretty=graph --date=short --abbrev-commit --graph"
+    la = !"GIT_PAGER=less git log --all --pretty=graph --notes --date=short --abbrev-commit --graph"
+    lg = log --stat --notes
+    lm = log --merges --stat --notes
+    lo = !"GIT_PAGER=less git log --pretty=graph --notes --date=short --graph"
     lp = log -10 --patch-with-stat
     ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
@@ -122,7 +123,7 @@
     compression = 9
     editor = vim
     eol = lf
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.git/ignore
     loosecompression = 9
     notesRef = refs/notes/rene
     preloadindex = true
@@ -131,17 +132,17 @@
     helper = cache
 
 [diff]
+    context = 5
     mnemonicprefix = true
+    submodule = log
 
 [fetch]
     prune = true
     recurseSubmodules = true
 
-[format]
-    thread = deep
-
 [grep]
     lineNumber = true
+    extendedRegexp = true
 
 [help]
     format = man
@@ -149,15 +150,21 @@
 [i18n]
     logOutputEncoding = utf8
 
+[init]
+    templateDir = ~/.git/template
+
 [interactive]
-    singlekey = false
+    singlekey = true
 
 [log]
+    abbrevCommit = true
     date = iso
+    follow = true
     showRoot = true
 
 [merge]
     log = true
+    renormalize = true
     stat = true
     tool = vimdiff3
     verbosity = 5
@@ -186,15 +193,23 @@
     stat = true
 
 [rerere]
+    autoUpdate = true
     enabled = true
 
 [status]
     relativePaths = false
     showUntrackedFiles = all
 
+[tag]
+    sort = version:refname
+
+[transfer]
+    fsckObjects = true
+
 [user]
     email = info@renatius.de
     name = René Six
+    useConfigOnly = true
 
 [includeIf "gitdir:~/git/profitmax/*"]
     path = ~/.git/gitconfig-profitmax
