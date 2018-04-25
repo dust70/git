@@ -198,6 +198,7 @@
 
 [status]
     relativePaths = false
+    showStash = true
     showUntrackedFiles = all
 
 [tag]
