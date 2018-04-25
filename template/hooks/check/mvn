@@ -1,18 +1,18 @@
 #!/bin/bash
 
+set -e
+
 PROJECT_DIR="${PWD}"
 RESULT=-1
 
 check()
 {
-    mvn test integration-test; RESULT=$?
+    mvn -B -ff -N -U -up clean test integration-test checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs ; RESULT=$?
     return ${RESULT}
 }
 
 if which mvn > /dev/null 2>&1 && [ -r "${PROJECT_DIR}"/pom.xml ]; then
     check; RESULT=$?
-else
-    RESULT=0
 fi
 
 exit ${RESULT}
