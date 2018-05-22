@@ -36,6 +36,7 @@
     pd = push --delete --no-verify --progress origin
     pf = !"git ph --force origin $(git branch-name)"
     ph = push --progress --set-upstream --tags
+    pl = pull
     pn = !"git ph --no-verify origin $(git branch-name)"
     pt = push --no-verify --progress --set-upstream --tags
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
