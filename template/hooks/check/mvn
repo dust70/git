@@ -7,7 +7,7 @@ RESULT=-1
 
 check()
 {
-    mvn -B -ff -N -U -up clean test integration-test checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs ; RESULT=$?
+    mvn -B -ff -N -U -up clean install checkstyle:check pmd:check pmd:cpd-check findbugs:check ; RESULT=$?
     return ${RESULT}
 }
 
