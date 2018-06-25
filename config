@@ -22,6 +22,8 @@
     ge = grep --break --heading --show-function
     gf = !"git ge --function-context"
     gr = !"git ge --ignore-case"
+    in = !"git ui --no-assume-unchanged"
+    iu = !"git ui --assume-unchanged"
     l10 = !"GIT_PAGER=less git log -10 --pretty=short --notes --date=short"
     la = !"GIT_PAGER=less git log --all --pretty=graph --notes --date=short --abbrev-commit --graph"
     lg = log --stat --notes
@@ -59,6 +61,7 @@
     ss = !"git st && git sf \"git st -s; echo\" && git submodule status --recursive"
     st = status
     su = !"git pull && echo && git sr \"git pull\" && git submodule -q sync && git ss"
+    ui = update-index --verbose
 
     clo = !"git co development && git rebase -n origin/development"
     cma = !"git co master && git rebase -n origin/master"
