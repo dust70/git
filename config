@@ -37,6 +37,7 @@
     mt = mergetool --no-prompt
     pd = push --delete --no-verify --progress origin
     pf = !"git ph --force origin $(git branch-name)"
+    pfn = pf --no-verify
     ph = push --progress --set-upstream --tags
     pl = pull
     pn = !"git ph --no-verify origin $(git branch-name)"
