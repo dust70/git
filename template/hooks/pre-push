@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+from languages.java import Mvn
+from languages.javascript import Npm
+from languages.make import Make
+from languages.php import Composer
+
+def main():
+    Composer().prePush()
+    Make().prePush()
+    Mvn().prePush()
+    Npm().prePush()
+
+if __name__ == "__main__":
+    main()
