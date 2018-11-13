@@ -2,6 +2,6 @@
     template = ~/.git/commit-profitmax.msg
 
 [user]
-    email = rs@profitmax.de
+    email = rs@preisvergleich.eu
 
 # vim: filetype=gitconfig foldmethod=indent foldminlines=0

@@ -118,7 +118,7 @@
     status = true
     template = ~/.git/commit.msg
 
-[includeIf "gitdir:~/git/profitmax/*"]
+[includeIf "gitdir:~/git/pricecompare/*"]
     path = ~/.git/config-atlassian
 
 [core]
@@ -211,8 +211,8 @@
     name = René Six
     useConfigOnly = true
 
-[includeIf "gitdir:~/git/profitmax/*"]
-    path = ~/.git/config-profitmax
+[includeIf "gitdir:~/git/pricecompare/*"]
+    path = ~/.git/config-pricecompare
 
 [tig]
     commit-order = topo
