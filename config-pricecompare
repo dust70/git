@@ -1,5 +1,5 @@
 [commit]
-    template = ~/.git/commit-profitmax.msg
+    template = ~/.git/commit-pricecompare.msg
 
 [user]
     email = rs@preisvergleich.eu
