@@ -17,6 +17,7 @@
 .metadata
 .nb-gradle/
 .netrwhist
+.project
 .recommenders
 .recommenders/
 .scala_dependencies
