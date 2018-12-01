@@ -1,4 +1,3 @@
-**/nbproject/private/
 *.bak
 *.launch
 *.pydevproject
@@ -15,7 +14,6 @@
 .factorypath
 .loadpath
 .metadata
-.nb-gradle/
 .netrwhist
 .project
 .recommenders
@@ -36,7 +34,5 @@ Session.vim
 [._]sw[a-p]
 bin/
 local.properties
-nbbuild/
-nbdist/
 tags
 tmp/
