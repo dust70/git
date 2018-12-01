@@ -12,6 +12,7 @@
 .cproject
 .externalToolBuilders/
 .factorypath
+.idea/
 .loadpath
 .metadata
 .netrwhist
