@@ -1,15 +1,14 @@
 from languages.speakable import Speakable
 
 
-
 class Make(Speakable):
     command = ["make", "clean", "install"]
 
-    def getTestCommand(self):
+    def get_test_command(self):
         return self.command
 
-    def getFile(self):
+    def getfile(self):
         return ["Makefile"]
 
-    def getInstallCommand(self):
+    def get_install_command(self):
         return self.command

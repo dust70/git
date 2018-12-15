@@ -3,37 +3,38 @@ from abc import ABC, abstractmethod
 import os.path
 import subprocess
 
+
 class Speakable(ABC):
     @abstractmethod
-    def getTestCommand(self):
+    def get_test_command(self):
         raise NotImplementedError
 
     @abstractmethod
-    def getFile(self):
+    def getfile(self):
         raise NotImplementedError
 
     @abstractmethod
-    def getInstallCommand(self):
+    def get_install_command(self):
         raise NotImplementedError
 
-    def postCheckout(self):
+    def post_checkout(self):
         if not (os.path.exists("./.git/rebase-merge") and os.path.exists("./.git/rebase-apply")):
-            self.remoteChanges("checkout")
+            self.remote_changes("checkout")
 
-    def postMerge(self):
-        self.remoteChanges("merge")
+    def post_merge(self):
+        self.remote_changes("merge")
 
-    def postRewrite(self):
-        self.remoteChanges("rewrite")
+    def post_rewrite(self):
+        self.remote_changes("rewrite")
 
-    def prePush(self):
-        if self.checkFiles():
+    def pre_push(self):
+        if self.check_files():
             print("run pre push command")
-            self.call(self.getTestCommand())
+            self.call(self.get_test_command())
 
-    def checkFiles(self):
+    def check_files(self):
         result = True
-        for file in self.getFile():
+        for file in self.getfile():
             result = os.path.isfile(file)
 
         return result
@@ -47,15 +48,16 @@ class Speakable(ABC):
 
         return process
 
-    def filesToString(self):
-        seperator = " "
+    def files_to_string(self):
+        return " ".join(self.getfile())
 
-        return seperator.join(self.getFile())
-
-    def remoteChanges(self, type):
-        if self.checkFiles():
+    def remote_changes(self, type):
+        if self.check_files():
             print("run post " + type + " command")
-            process = subprocess.Popen(["git", "diff", "HEAD@{1}", "--name-only", "--", self.filesToString()], stdout=subprocess.PIPE)
+            process = subprocess.Popen(
+                ["git", "diff", "HEAD@{1}", "--name-only", "--", self.files_to_string()],
+                stdout=subprocess.PIPE
+            )
 
             if len(process.stdout.readlines()) > 0:
-                self.call(self.getInstallCommand())
+                self.call(self.get_install_command())

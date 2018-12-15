@@ -6,13 +6,11 @@ from languages.javascript import Npm
 from languages.php import Composer
 
 
-
 def main():
-    Composer().postCheckout()
-    Make().postCheckout()
-    Mvn().postCheckout()
-    Npm().postCheckout()
-
+    Composer().post_checkout()
+    Make().post_checkout()
+    Mvn().post_checkout()
+    Npm().post_checkout()
 
 
 if __name__ == "__main__":

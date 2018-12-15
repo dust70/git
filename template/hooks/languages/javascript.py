@@ -1,15 +1,14 @@
 from languages.speakable import Speakable
 
 
-
 class Npm(Speakable):
     command = ["npm"]
 
-    def getTestCommand(self):
+    def get_test_command(self):
         return self.command + ["run-script", "verify"]
 
-    def getFile(self):
+    def getfile(self):
         return ["package.json"]
 
-    def getInstallCommand(self):
+    def get_install_command(self):
         return self.command + ["install"]

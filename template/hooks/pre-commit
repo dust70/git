@@ -2,8 +2,10 @@
 
 from languages.php import Php
 
+
 def main():
-    Php().preCommit()
+    Php().precommit()
+
 
 if __name__ == "__main__":
     main()

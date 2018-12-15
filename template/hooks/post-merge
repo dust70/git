@@ -6,13 +6,11 @@ from languages.javascript import Npm
 from languages.php import Composer
 
 
-
 def main():
-    Composer().postMerge()
-    Make().postMerge()
-    Mvn().postMerge()
-    Npm().postMerge()
-
+    Composer().post_merge()
+    Make().post_merge()
+    Mvn().post_merge()
+    Npm().post_merge()
 
 
 if __name__ == "__main__":

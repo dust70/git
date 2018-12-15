@@ -6,10 +6,11 @@ from languages.make import Make
 from languages.php import Composer
 
 def main():
-    Composer().prePush()
-    Make().prePush()
-    Mvn().prePush()
-    Npm().prePush()
+    Composer().pre_push()
+    Make().pre_push()
+    Mvn().pre_push()
+    Npm().pre_push()
+
 
 if __name__ == "__main__":
     main()
