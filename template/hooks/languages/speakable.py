@@ -19,23 +19,22 @@ class Speakable(ABC):
 
     def post_checkout(self):
         if not (os.path.exists("./.git/rebase-merge") and os.path.exists("./.git/rebase-apply")):
-            self.remote_changes("checkout")
+            self.remote_changes()
 
     def post_merge(self):
-        self.remote_changes("merge")
+        self.remote_changes()
 
     def post_rewrite(self):
-        self.remote_changes("rewrite")
+        self.remote_changes()
 
     def pre_push(self):
         if self.check_files():
-            print("run pre push command")
             self.call(self.get_test_command())
 
     def check_files(self):
         result = True
         for file in self.getfile():
-            result = os.path.isfile(file)
+            result &= os.path.isfile(file)
 
         return result
 
@@ -51,9 +50,8 @@ class Speakable(ABC):
     def files_to_string(self):
         return " ".join(self.getfile())
 
-    def remote_changes(self, type):
+    def remote_changes(self):
         if self.check_files():
-            print("run post " + type + " command")
             process = subprocess.Popen(
                 ["git", "diff", "HEAD@{1}", "--name-only", "--", self.files_to_string()],
                 stdout=subprocess.PIPE
