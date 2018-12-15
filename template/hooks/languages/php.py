@@ -1,6 +1,5 @@
+from languages.linty import Linty
 from languages.speakable import Speakable
-
-import subprocess
 
 
 class Composer(Speakable):
@@ -16,15 +15,12 @@ class Composer(Speakable):
         return self.command + ["install", "--no-interaction"]
 
 
-class Php:
-    def precommit(self):
-        process = subprocess.Popen(
-            ["git", "diff-index", "--diff-filter=ACMRT", "--name-only", "HEAD", "--"],
-            stdout=subprocess.PIPE
-        )
-        for l in process.stdout.readlines():
-            check = subprocess.Popen(["php", "-l", l.strip(), ">", "/dev/null"])
-            check.communicate()
+class Php(Linty):
+    def get_command(self, file):
+        return ["php", "-l", file]
 
-            if check.returncode != 0:
-                raise Exception("Command don't succeed!")
+    def get_config(self):
+        return {}
+
+    def get_key(self):
+        return "php"
