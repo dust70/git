@@ -147,6 +147,12 @@
     pruneTags = true
     recurseSubmodules = true
 
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    process = git-lfs filter-process
+    required = true
+    smudge = git-lfs smudge -- %f
+
 [grep]
     lineNumber = true
     extendedRegexp = true
