@@ -1,16 +1,17 @@
-from abc import ABC, abstractmethod
-
 import os.path
 import subprocess
+from abc import abstractmethod
+
+from configuration.configurable import Configurable
 
 
-class Speakable(ABC):
+class Speakable(Configurable):
     @abstractmethod
     def get_test_command(self):
         raise NotImplementedError
 
     @abstractmethod
-    def getfile(self):
+    def get_file(self):
         raise NotImplementedError
 
     @abstractmethod
@@ -33,7 +34,7 @@ class Speakable(ABC):
 
     def check_files(self):
         result = True
-        for file in self.getfile():
+        for file in self.get_file():
             result &= os.path.isfile(file)
 
         return result
@@ -48,7 +49,7 @@ class Speakable(ABC):
         return process
 
     def files_to_string(self):
-        return " ".join(self.getfile())
+        return " ".join(self.get_file())
 
     def remote_changes(self):
         if self.check_files():

@@ -12,10 +12,6 @@ class Configurable(ABC):
             "test": [],
         }
 
-    @abstractmethod
-    def get_key(self):
-        raise NotImplementedError
-
     def get_configuration(self):
         key = self.get_key()
         if key not in self.config or not bool(self.config[key]):
@@ -33,6 +29,10 @@ class Configurable(ABC):
             self.config[key] = {**result, **file_config}
 
         return self.config[key]
+
+    @abstractmethod
+    def get_key(self):
+        raise NotImplementedError
 
     def is_active(self):
         if "active" in self.get_configuration():
