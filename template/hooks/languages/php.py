@@ -19,8 +19,8 @@ class Php(Linty):
     def get_command(self, file):
         return ["php", "-l", file]
 
-    def get_config(self):
-        return {}
+    # def get_config(self):
+    #    return {}
 
     def get_key(self):
         return "php"
