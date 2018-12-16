@@ -37,7 +37,7 @@
     mf = !"git me --ff"
     mm = !"git mf origin/$(git branch-name)"
     mma = !"git mf origin/master"
-    mt = mergetool --no-prompt
+    mt = mergetool
     pd = push --delete --no-verify --progress origin
     pf = !"git ph --force origin $(git branch-name)"
     pfn = !"git pf --no-verify"
@@ -98,8 +98,11 @@
     diff = auto
     grep = auto
     interactive = auto
+    push = auto
+    remote = auto
     showbranch = auto
     status = auto
+    transport = auto
 
 [color "branch"]
     current = green normal bold
@@ -136,10 +139,12 @@
 [diff]
     context = 5
     mnemonicprefix = true
-    submodule = log
+    renames = copy
+    renameLimit = 3
 
 [fetch]
     prune = true
+    pruneTags = true
     recurseSubmodules = true
 
 [grep]
@@ -170,7 +175,6 @@
 
 [mergetool]
     keepBackup = false
-    writeToTemp = true
 
 [pack]
     compression = 9
@@ -202,9 +206,6 @@
 
 [tag]
     sort = version:refname
-
-[transfer]
-    fsckObjects = true
 
 [user]
     email = info@renatius.de
