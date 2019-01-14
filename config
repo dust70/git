@@ -223,12 +223,12 @@
 
 [tig]
     commit-order = topo
+    history-size = 0
     horizontal-scroll = 95%
-    ignore-case = yes
+    ignore-case = smart-case
+    ignore-space = some
     line-graphics = utf-8
     mouse = no
-    refresh-interval = 300
-    refresh-mode = periodic
     split-view-height = 75%
     tab-size = 4
     vertical-split = false
