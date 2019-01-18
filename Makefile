@@ -11,16 +11,18 @@ clean:
 	rm -fr GitIgnoreRepo
 	rm -fr $(GIT_IGNORE_REPOSITORY)
 
-install: | $(GIT_IGNORE_REPOSITORY) $(PRECOMMIT_CONFIG) $(LOCAL_BIN)/pre-commit $(LOCAL_BIN)/ansible-lint $(LOCAL_BIN)/yamllint
+install: | $(GIT_IGNORE_REPOSITORY) template/hooks/prepare-commit $(LOCAL_BIN)/pre-commit $(LOCAL_BIN)/ansible-lint $(LOCAL_BIN)/yamllint
 	ln -snf ${ROOT_DIR}/config ${HOME}/.gitconfig
 
-update: | $(GIT_IGNORE_REPOSITORY) $(PRECOMMIT_CONFIG) $(LOCAL_BIN)/pre-commit $(LOCAL_BIN)/ansible-lint $(LOCAL_BIN)/yamllint
+update: | $(GIT_IGNORE_REPOSITORY) template/hooks/prepare-commit $(LOCAL_BIN)/pre-commit $(LOCAL_BIN)/ansible-lint $(LOCAL_BIN)/yamllint
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) checkout -f
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) pull
 	pre-commit autoupdate
 
 $(PRECOMMIT_CONFIG):
 	ln -snf ${ROOT_DIR}/pre-commit-config.yaml $(PRECOMMIT_CONFIG)
+
+template/hooks/prepare-commit: | $(PRECOMMIT_CONFIG)
 	pre-commit install --overwrite --install-hooks
 
 $(GIT_IGNORE_REPOSITORY):
