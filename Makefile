@@ -22,17 +22,17 @@ update: | $(GIT_IGNORE_REPOSITORY) template/hooks/prepare-commit $(LOCAL_BIN)/pr
 $(PRECOMMIT_CONFIG):
 	ln -snf ${ROOT_DIR}/pre-commit-config.yaml $(PRECOMMIT_CONFIG)
 
-template/hooks/prepare-commit: | $(PRECOMMIT_CONFIG)
+template/hooks/prepare-commit: | $(LOCAL_BIN)/pre-commit $(PRECOMMIT_CONFIG)
 	pre-commit install --overwrite --install-hooks
 
 $(GIT_IGNORE_REPOSITORY):
 	git clone git://github.com/github/gitignore.git $(GIT_IGNORE_REPOSITORY)
 
 $(LOCAL_BIN)/pre-commit:
-	pip3 install --user pre-commit
+	pip install --user pre-commit
 
 $(LOCAL_BIN)/ansible-lint:
-	pip3 install --user ansible-lint
+	pip install --user ansible-lint
 
 $(LOCAL_BIN)/yamllint:
-	pip3 install --user yamllint
+	pip install --user yamllint
