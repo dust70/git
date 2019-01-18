@@ -60,19 +60,19 @@ repos:
       - id: remove-tabs
 
   - repo: https://github.com/chriskuehl/puppet-pre-commit-hooks.git
-      rev: master
-      hooks:
-      - id: puppet-validate
-      - id: erb-validate
-      - id: epp-validate
-      - id: puppet-lint
-        args:
-        - --fail-on-warnings
+    rev: master
+    hooks:
+    - id: puppet-validate
+    - id: erb-validate
+    - id: epp-validate
+    - id: puppet-lint
+      args:
+      - --fail-on-warnings
 
   - repo: git://github.com/detailyang/pre-commit-shell
-      rev: master
-      hooks:
-      - id: shell-lint
+    rev: master
+    hooks:
+    - id: shell-lint
 
   - repo: https://github.com/ansible/ansible-lint.git
     rev: master
@@ -94,5 +94,3 @@ repos:
     rev: master
     hooks:
     - id: dockerfilelint
-      stages:
-        - commit
