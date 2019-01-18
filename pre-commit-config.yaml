@@ -1,5 +1,6 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.1.0
@@ -12,13 +13,19 @@ repos:
       - id: check-xml
       - id: check-yaml
       - id: end-of-file-fixer
-        args:
-          - --fix=lf
       - id: file-contents-sorter
       - id: mixed-line-ending
+      # - id: no-commit-to-branch
+      #   args:
+      #     - --branch
+      #     - master
+      - id: pretty-format-json
+        args:
+        - --autofix
+        - --indent=2
       - id: trailing-whitespace
         args:
-        - --no-markdown-linebreak-ext
+        - --markdown-linebreak-ext=md
 
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v5.12.0
@@ -33,31 +40,23 @@ repos:
   - repo: https://github.com/digitalpulp/pre-commit-php
     rev: 1.3.0
     hooks:
-      - id: php-cbf
-        files: \.(php)$
-        args:
-          - -p
-          - -s
-      - id: php-cs
-        files: \.(php)$
-        args:
-          - -p
-          - -s
-      - id: php-lint
-      - id: php-unit
+    - id: php-lint
+    # - id: php-cbf
+    # - id: php-cs-fixer
+    - id: php-cs
+    - id: php-unit
 
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 1.10.3
     hooks:
       - id: forbid-binary
       - id: git-check
-      - id: git-dirty
 
-  - repo: https://github.com/Lucas-C/pre-commit-hooks.git
-    rev: v1.1.6
-    hooks:
-      - id: remove-crlf
-      - id: remove-tabs
+  # - repo: https://github.com/Lucas-C/pre-commit-hooks.git
+  #   rev: v1.1.6
+  #   hooks:
+  #     - id: remove-crlf
+  #     - id: remove-tabs
 
   - repo: https://github.com/chriskuehl/puppet-pre-commit-hooks.git
     rev: v2.0.2
@@ -69,16 +68,10 @@ repos:
       args:
       - --fail-on-warnings
 
-  - repo: git://github.com/detailyang/pre-commit-shell
-    rev: 1.0.4
-    hooks:
-    - id: shell-lint
-
   - repo: https://github.com/ansible/ansible-lint.git
     rev: v4.0.1
     hooks:
       - id: ansible-lint
-        files: \.(yaml|yml)$
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.14.0
