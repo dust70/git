@@ -1,0 +1,98 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: master
+    hooks:
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-xml
+      - id: check-yaml
+      - id: end-of-file-fixer
+        args:
+          - --fix=lf
+      - id: file-contents-sorter
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+        args:
+        - --no-markdown-linebreak-ext
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: master
+    hooks:
+    - id: eslint
+
+  - repo: https://github.com/pre-commit/mirrors-jshint
+    rev: master
+    hooks:
+    - id: jshint
+
+  - repo: https://github.com/digitalpulp/pre-commit-php
+    rev: master
+    hooks:
+      - id: php-cbf
+        files: \.(php)$
+        args:
+          - -p
+          - -s
+      - id: php-cs
+        files: \.(php)$
+        args:
+          - -p
+          - -s
+      - id: php-lint
+      - id: php-unit
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: master
+    hooks:
+      - id: forbid-binary
+      - id: git-check
+      - id: git-dirty
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks.git
+    rev: master
+    hooks:
+      - id: remove-crlf
+      - id: remove-tabs
+
+  - repo: https://github.com/chriskuehl/puppet-pre-commit-hooks.git
+      rev: master
+      hooks:
+      - id: puppet-validate
+      - id: erb-validate
+      - id: epp-validate
+      - id: puppet-lint
+        args:
+        - --fail-on-warnings
+
+  - repo: git://github.com/detailyang/pre-commit-shell
+      rev: master
+      hooks:
+      - id: shell-lint
+
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: master
+    hooks:
+      - id: ansible-lint
+        files: \.(yaml|yml)$
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: master
+    hooks:
+      - id: yamllint
+
+  - repo: https://github.com/IamTheFij/docker-pre-commit
+    rev: master
+    hooks:
+      - id: docker-compose-check
+
+  - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
+    rev: master
+    hooks:
+    - id: dockerfilelint
+      stages:
+        - commit
