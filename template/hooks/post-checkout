@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 
 from languages.java import Mvn
-from languages.make import Make
 from languages.javascript import Npm
 from languages.php import Composer
 
 
 def main():
     Composer().post_checkout()
-    Make().post_checkout()
     Mvn().post_checkout()
     Npm().post_checkout()
 

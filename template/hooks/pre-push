@@ -2,12 +2,11 @@
 
 from languages.java import Mvn
 from languages.javascript import Npm
-from languages.make import Make
 from languages.php import Composer
+
 
 def main():
     Composer().pre_push()
-    Make().pre_push()
     Mvn().pre_push()
     Npm().pre_push()
 
