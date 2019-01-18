@@ -1,4 +1,5 @@
 *.pyc
 
+/.pre-commit-config.yaml
 /GitIgnoreRepository
 /template/hooks/pre-commit
