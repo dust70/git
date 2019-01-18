@@ -4,7 +4,6 @@
 [alias]
     ac = commit --all --branch --status --verbose
     ad = add --all --
-    ai = add --interactive --
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
@@ -23,40 +22,33 @@
     ge = grep --break --heading --show-function
     gf = !"git ge --function-context"
     gr = !"git ge --ignore-case"
-    in = !"git ui --no-assume-unchanged"
-    iu = !"git ui --assume-unchanged"
-    l10 = !"GIT_PAGER=less git log -10 --pretty=short --notes --date=short"
-    la = !"GIT_PAGER=less git log --all --pretty=graph --notes --date=short --abbrev-commit --graph"
-    lg = log --stat --notes
-    lm = log --merges --stat --notes
     lo = !"GIT_PAGER=less git log --pretty=graph --notes --date=short --graph"
-    lp = log -10 --patch-with-stat
-    ls = ls-files -cdkmosu --no-empty-directory --exclude-standard --full-name --
     ma = merge --abort
+    mb = delete-merged-branches
     me = merge --stat --summary
     mf = !"git me --ff"
     mm = !"git mf origin/$(git branch-name)"
     mma = !"git mf origin/master"
     mt = mergetool
     pd = push --delete --no-verify --progress origin
+    pf = !"git ph --force github $(git branch-name)"
     pf = !"git ph --force origin $(git branch-name)"
     pfn = !"git pf --no-verify"
+    pg = !"git ph --force github $(git branch-name)"
     ph = push --progress --set-upstream --tags
     pl = pull
     pn = !"git ph --no-verify origin $(git branch-name)"
-    pt = push --no-verify --progress --set-upstream --tags
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
     ra = rebase --abort
     rc = rebase --continue
     re = reset
     rh = reset --hard
+    ri = rebase --verbose --stat --interactive --preserve-merges --autosquash
     rp = rebase --skip
     rs = reset --soft
     rv = remote --verbose
     sa = stash save
-    sb = !"git br && git sr \"git br\""
     sc = stash clear
-    se = !"git rebase --interactive $(git rev-list --reverse HEAD | head -n 1)"
     sf = !"git submodule foreach"
     sl = stash list
     sm = submodule
@@ -65,26 +57,10 @@
     ss = !"git st && git sf \"git st -s; echo\" && git submodule status --recursive"
     st = status
     su = !"git pull && echo && git sr \"git pull\" && git submodule -q sync && git ss"
-    ui = update-index --verbose
 
-    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
-    aliases = config --get-regexp "^alias"
     bclean = !"git for-each-ref --format='%(refname:short)' refs/heads | " \
         "grep -Ev 'master' | xargs git bd"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
-    brup = !"git fm && git branch --column=never --list --no-color|" \
-        "xargs -I {} bash -c 'i=\"{}\" && git co ${i//\\*/} && git reset-all >> /dev/null' && git cma"
-    remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
-    reset-all = !"(git sa || true) && git rh --quiet $(git rev-list --reverse HEAD | head -n 1) && "\
-        "git merge --quiet origin/$(git branch-name); (git so || true)"
-    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
-
-[apply]
-    ignorewhitespace = change
-    whitespace = nowarn
 
 [branch]
     autoSetupMerge = always
@@ -126,15 +102,10 @@
 
 [core]
     compression = 9
-    editor = vim
     eol = lf
     excludesfile = ~/.git/ignore
     loosecompression = 9
-    notesRef = refs/notes/rene
     preloadindex = true
-
-[credential]
-    helper = cache
 
 [diff]
     context = 5
@@ -157,12 +128,6 @@
     lineNumber = true
     extendedRegexp = true
 
-[help]
-    format = man
-
-[i18n]
-    logOutputEncoding = utf8
-
 [interactive]
     singlekey = true
 
@@ -177,16 +142,12 @@
     renormalize = true
     stat = true
     tool = vimdiff3
-    verbosity = 5
 
 [mergetool]
     keepBackup = false
 
 [pack]
     compression = 9
-
-[pretty]
-    graph = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset
 
 [pull]
     ff = only
