@@ -1,16 +1,17 @@
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-GIT_IGNORE_REPOSITORY = GitIgnoreRepository
+GIT_IGNORE_REPOSITORY = $(ROOT_DIR)/GitIgnoreRepository
 
 PRECOMMIT_CONFIG = $(ROOT_DIR)/.pre-commit-config.yaml
 
 .PHONY: install
 
 clean:
-	rm -f ${HOME}/.gitconfig
-	rm -f ${HOME}/.gitignore
+	rm -f $(HOME)/.gitconfig
+	rm -f $(HOME)/.gitignore
 	rm -f $(PRECOMMIT_CONFIG)
 	rm -fr GitIgnoreRepo
+	rm -fr $(GIT_IGNORE_REPOSITORY)
 
 install: | $(GIT_IGNORE_REPOSITORY) $(PRECOMMIT_CONFIG)
 	ln -snf ${ROOT_DIR}/config ${HOME}/.gitconfig
