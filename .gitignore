@@ -1,3 +1,4 @@
 *.pyc
 
 /GitIgnoreRepository
+/template/hooks/pre-commit
