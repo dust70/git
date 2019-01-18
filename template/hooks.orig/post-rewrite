@@ -1,9 +1,0 @@
-#!/bin/bash
-
-HOOKS_DIR="${PWD}"/.git/hooks
-
-case "${1}" in
-    rebase)
-        "${HOOKS_DIR}"/post-merge
-        ;;
-esac
