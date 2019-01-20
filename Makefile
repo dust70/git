@@ -2,37 +2,37 @@ ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 GIT_IGNORE_REPOSITORY = $(ROOT_DIR)/GitIgnoreRepository
 LOCAL_BIN = ${HOME}/.local/bin
-PRECOMMIT_CONFIG = $(ROOT_DIR)/.pre-commit-config.yaml
 
 clean:
-	rm -f $(HOME)/.gitconfig
-	rm -f $(HOME)/.gitignore
-	rm -f $(PRECOMMIT_CONFIG)
+	rm -f ${HOME}/.gitconfig
+	rm -f ${HOME}/.gitignore
+	rm -f ${HOME}/.tig_history
 	rm -fr GitIgnoreRepo
 	rm -fr $(GIT_IGNORE_REPOSITORY)
+	#
+	gem uninstall --all --user-install overcommit || true
+	gem uninstall --all --user-install puppet-lint || true
 
-install: | $(GIT_IGNORE_REPOSITORY) template/hooks/prepare-commit $(LOCAL_BIN)/pre-commit $(LOCAL_BIN)/ansible-lint $(LOCAL_BIN)/yamllint
+install: | install_repos packages ${HOME}/.git
 	ln -snf ${ROOT_DIR}/config ${HOME}/.gitconfig
 
-update: | $(GIT_IGNORE_REPOSITORY) template/hooks/prepare-commit $(LOCAL_BIN)/pre-commit $(LOCAL_BIN)/ansible-lint $(LOCAL_BIN)/yamllint
+${HOME}/.git:
+	ln -snf $(ROOT_DIR) ${HOME}/.git
+
+update: | install_repos packages
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) checkout -f
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) pull
-	pre-commit autoupdate
-
-$(PRECOMMIT_CONFIG):
-	ln -snf ${ROOT_DIR}/pre-commit-config.yaml $(PRECOMMIT_CONFIG)
-
-template/hooks/prepare-commit: | $(LOCAL_BIN)/pre-commit $(PRECOMMIT_CONFIG)
-	pre-commit install --overwrite --install-hooks
+	#
+	gem update --user-install overcommit
+	gem update --user-install puppet-lint
 
 $(GIT_IGNORE_REPOSITORY):
 	git clone git://github.com/github/gitignore.git $(GIT_IGNORE_REPOSITORY)
 
-$(LOCAL_BIN)/pre-commit:
-	pip install --user pre-commit
+packages:
+	gem install --user-install overcommit
+	gem install --user-install puppet-lint
 
-$(LOCAL_BIN)/ansible-lint:
-	pip install --user ansible-lint
+install_repos: | $(GIT_IGNORE_REPOSITORY)
 
-$(LOCAL_BIN)/yamllint:
-	pip install --user yamllint
+.PHONY: install_repos
