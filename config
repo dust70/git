@@ -2,7 +2,7 @@
     ignore-errors = true
 
 [alias]
-    ac = commit --all --branch --status --verbose
+    ac = !"git cm --all"
     ad = add --all --
     ba = branch -a --verbose
     bc = checkout -b
@@ -13,6 +13,7 @@
     cl = !"git clone --progress --verbose --template=${HOME}/.git/template --recurse-submodules"
     cm = commit --branch --status --verbose
     cma = !"git co master && git rebase -n origin/master"
+    cmn = !"git cm --no-verify"
     cn = !"git reflog expire --all && git fsck --unreachable --full && " \
         "git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
@@ -109,9 +110,10 @@
 
 [diff]
     context = 5
+    ignoreSubmodules = all
     mnemonicprefix = true
-    renames = copy
     renameLimit = 3
+    renames = copy
 
 [fetch]
     prune = true
