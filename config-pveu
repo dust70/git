@@ -1,5 +1,5 @@
 [commit]
-    template = ~/.git/commit-pricecompare.msg
+    template = ~/.git/commit-pveu.msg
 
 [user]
     email = rs@preisvergleich.eu

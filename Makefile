@@ -31,6 +31,8 @@ $(GIT_IGNORE_REPOSITORY):
 
 packages:
 	gem install --user-install overcommit
+	#
+	gem install --user-install mdl
 	gem install --user-install puppet-lint
 
 install_repos: | $(GIT_IGNORE_REPOSITORY)
