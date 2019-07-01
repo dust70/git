@@ -3,6 +3,7 @@
 
 [alias]
     ac = !"git cm --all"
+    acn = !"git cmn --all"
     ad = add --all --
     ba = branch -a --verbose
     bc = checkout -b
