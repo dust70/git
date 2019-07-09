@@ -26,7 +26,6 @@
     gr = !"git ge --ignore-case"
     lo = !"GIT_PAGER=less git log --pretty=graph --notes --date=short --graph"
     ma = merge --abort
-    mb = delete-merged-branches
     me = merge --stat --summary
     mf = !"git me --ff"
     mm = !"git mf origin/$(git branch-name)"
