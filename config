@@ -49,7 +49,7 @@
     rs = reset --soft
     rv = remote --verbose
     sa = stash save
-    saa = stash save --all
+    sau = stash save --include-untracked
     sc = stash clear
     sf = !"git submodule foreach"
     sl = stash list
