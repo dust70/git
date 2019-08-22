@@ -9,31 +9,19 @@ clean:
 	rm -f ${HOME}/.tig_history
 	rm -fr GitIgnoreRepo
 	rm -fr $(GIT_IGNORE_REPOSITORY)
-	#
-	gem uninstall --all --user-install overcommit || true
-	gem uninstall --all --user-install puppet-lint || true
 
-install: | install_repos packages ${HOME}/.git
+install: | install_repos ${HOME}/.git
 	ln -snf ${ROOT_DIR}/config ${HOME}/.gitconfig
 
 ${HOME}/.git:
 	ln -snf $(ROOT_DIR) ${HOME}/.git
 
-update: | install_repos packages
+update: | install_repos
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) checkout -f
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) pull
-	#
-	gem update --user-install overcommit
-	gem update --user-install puppet-lint
 
 $(GIT_IGNORE_REPOSITORY):
 	git clone git://github.com/github/gitignore.git $(GIT_IGNORE_REPOSITORY)
-
-packages:
-	gem install --user-install overcommit
-	#
-	gem install --user-install mdl
-	gem install --user-install puppet-lint
 
 install_repos: | $(GIT_IGNORE_REPOSITORY)
 
