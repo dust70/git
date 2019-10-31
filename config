@@ -48,8 +48,8 @@
     rp = rebase --skip
     rs = reset --soft
     rv = remote --verbose
-    sa = stash save
-    sau = stash save --include-untracked
+    sa = stash push
+    sau = stash push --include-untracked
     sc = stash clear
     sf = !"git submodule foreach"
     sl = stash list
