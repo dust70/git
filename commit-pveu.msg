@@ -1,15 +1,12 @@
+
 # (If applied, this commit will...) <subject> (Max 50 char)
 # |<----  Using a Maximum Of 50 Characters  ---->|
 
-
 # Explain why this change is being made
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
-
-
+BRANCHNAME
 # Provide links or keys to any relevant tickets, articles or other resources
 # Example: Github issue #23
-BRANCHNAME
-
 # --- COMMIT END ---
 # Remember to
 #    Capitalize the subject line
