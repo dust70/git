@@ -106,6 +106,7 @@
     compression = 9
     eol = lf
     excludesfile = ~/.git/ignore
+    hooksPath=~/.git/template
     loosecompression = 9
     preloadindex = true
 
@@ -184,6 +185,14 @@
 
 [includeIf "gitdir:~/git/pveu/*"]
     path = ~/.git/config-pveu
+
+################################################################################
+# Third party configurations                                                   #
+################################################################################
+[hooks]
+    enabled-plugins = junkchecker
+    enabled-plugins = php/composer
+    enabled-plugins = syntaxchecker
 
 [tig]
     commit-order = topo
