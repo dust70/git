@@ -2,10 +2,10 @@ ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 GIT_IGNORE_REPOSITORY = $(ROOT_DIR)/GitIgnoreRepository
 GIT_TEMPLATE_REPOSITORY = $(ROOT_DIR)/GitTemplate
-LOCAL_BIN = ${HOME}/.local/bin
 
 clean:
 	rm -f $(ROOT_DIR)/template
+	rm -f ${HOME}/.git_template
 	rm -f ${HOME}/.gitconfig
 	rm -f ${HOME}/.gitignore
 	rm -f ${HOME}/.tig_history
@@ -31,6 +31,7 @@ $(GIT_IGNORE_REPOSITORY):
 $(GIT_TEMPLATE_REPOSITORY):
 	git clone https://github.com/greg0ire/git_template $(GIT_TEMPLATE_REPOSITORY)
 	ln -snf $(GIT_TEMPLATE_REPOSITORY)/template $(ROOT_DIR)/template
+	ln -snf $(GIT_TEMPLATE_REPOSITORY)/template ${HOME}/.git_template
 
 install_repos: | $(GIT_IGNORE_REPOSITORY) $(GIT_TEMPLATE_REPOSITORY)
 
