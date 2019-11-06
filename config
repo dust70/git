@@ -106,7 +106,7 @@
     compression = 9
     eol = lf
     excludesfile = ~/.git/ignore
-    hooksPath=~/.git/template
+    hooksPath = ~/.git/template
     loosecompression = 9
     preloadindex = true
 
