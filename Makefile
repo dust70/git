@@ -1,6 +1,7 @@
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 GIT_IGNORE_REPOSITORY = $(ROOT_DIR)/GitIgnoreRepository
+GIT_TEMPLATE_REPOSITORY = $(ROOT_DIR)/GitTemplate
 
 clean:
 	rm -f ${HOME}/.git_template
