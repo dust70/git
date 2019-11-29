@@ -32,10 +32,10 @@
     mma = !"git mf origin/master"
     mt = mergetool
     pd = push --delete --no-verify --progress origin
-    pf = !"git ph --force github $(git branch-name)"
     pf = !"git ph --force origin $(git branch-name)"
     pfn = !"git pf --no-verify"
-    pg = !"git ph --force github $(git branch-name)"
+    pgh = !"git ph --force github $(git branch-name)"
+    pgl = !"git ph --force gitlab $(git branch-name)"
     ph = push --progress --set-upstream --tags
     pl = pull
     pn = !"git ph --no-verify origin $(git branch-name)"
