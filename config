@@ -189,11 +189,6 @@
 ################################################################################
 # Third party configurations                                                   #
 ################################################################################
-[hooks]
-    enabled-plugins = junkchecker
-    enabled-plugins = php/composer
-    enabled-plugins = syntaxchecker
-
 [tig]
     commit-order = topo
     history-size = 0
