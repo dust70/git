@@ -65,6 +65,8 @@
     bclean = !"git for-each-ref --format='%(refname:short)' refs/heads | " \
         "grep -Ev 'master' | xargs git bd"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
+    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
+        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
 
 [branch]
     autoSetupMerge = always
