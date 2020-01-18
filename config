@@ -105,9 +105,6 @@
     status = true
     template = ~/.git/commit.msg
 
-[includeIf "gitdir:~/git/pveu/*"]
-    path = ~/.git/config-atlassian
-
 [core]
     compression = 9
     eol = lf
@@ -188,9 +185,6 @@
     email = info@renatius.de
     name = René Six
     useConfigOnly = true
-
-[includeIf "gitdir:~/git/pveu/*"]
-    path = ~/.git/config-pveu
 
 ################################################################################
 # Third party configurations                                                   #
