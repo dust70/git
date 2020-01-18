@@ -8,6 +8,7 @@ clean:
 	rm -f ${HOME}/.gitconfig
 	rm -f ${HOME}/.gitignore
 	rm -f ${HOME}/.tig_history
+	rm -f ${ROOT_DIR}/local.conf
 	rm -fr $(GIT_IGNORE_REPOSITORY)
 	rm -fr $(GIT_TEMPLATE_REPOSITORY)
 
@@ -16,6 +17,7 @@ install: | install_repos ${HOME}/.git
 
 ${HOME}/.git:
 	ln -snf $(ROOT_DIR) ${HOME}/.git
+	touch local.conf
 
 update: | install_repos
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) checkout -f
