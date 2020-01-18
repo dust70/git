@@ -8,11 +8,13 @@ clean:
 	rm -f ${HOME}/.gitconfig
 	rm -f ${HOME}/.gitignore
 	rm -f ${HOME}/.tig_history
+	rm -f ${ROOT_DIR}/local.conf
 	rm -fr $(GIT_IGNORE_REPOSITORY)
 	rm -fr $(GIT_TEMPLATE_REPOSITORY)
 
 install: | install_repos ${HOME}/.git
 	ln -snf ${ROOT_DIR}/config ${HOME}/.gitconfig
+	touch ${ROOT_DIR}/local.conf
 
 ${HOME}/.git:
 	ln -snf $(ROOT_DIR) ${HOME}/.git
