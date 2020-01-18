@@ -18,6 +18,7 @@ install: | install_repos ${HOME}/.git
 
 ${HOME}/.git:
 	ln -snf $(ROOT_DIR) ${HOME}/.git
+	touch local.conf
 
 update: | install_repos
 	git --work-tree=$(GIT_IGNORE_REPOSITORY) checkout -f
