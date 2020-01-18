@@ -18,6 +18,7 @@
     cn = !"git reflog expire --all && git fsck --unreachable --full && " \
         "git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
+    di = diff
     dt = difftool
     fe = fetch --progress
     fm = !"git fe --all && git fe --all --tags"
@@ -185,6 +186,9 @@
     email = info@renatius.de
     name = René Six
     useConfigOnly = true
+
+[include]
+    path = local.conf
 
 ################################################################################
 # Third party configurations                                                   #
