@@ -1,7 +1,0 @@
-[commit]
-    template = ~/.git/commit-pveu.msg
-
-[user]
-    email = rs@preisvergleich.eu
-
-# vim: filetype=gitconfig foldmethod=indent foldminlines=0
