@@ -104,7 +104,7 @@
 
 [commit]
     status = true
-    template = ~/.git/commit.msg
+    ; template = ~/.git/commit.msg
 
 [core]
     compression = 9
@@ -188,7 +188,7 @@
     useConfigOnly = true
 
 [include]
-    path = local.conf
+    path = ~/.git/local.conf
 
 ################################################################################
 # Third party configurations                                                   #
