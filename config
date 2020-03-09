@@ -5,6 +5,7 @@
     ac = !"git cm --all"
     acn = !"git cmn --all"
     ad = add --all --
+    ai = add --interactive --patch --
     ba = branch -a --verbose
     bc = checkout -b
     bd = branch --verbose --delete
