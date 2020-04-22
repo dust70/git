@@ -119,7 +119,7 @@
     context = 5
     ignoreSubmodules = all
     mnemonicprefix = true
-    renameLimit = 3
+    renameLimit = 8
     renames = copy
 
 [fetch]
@@ -148,6 +148,7 @@
 
 [merge]
     log = true
+    renameLimit = 8
     renormalize = true
     stat = true
     tool = vimdiff3
