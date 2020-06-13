@@ -16,8 +16,7 @@
     cm = commit --branch --status --verbose
     cma = !"git co master && git rebase -n origin/master"
     cmn = !"git cm --no-verify"
-    cn = !"git reflog expire --all && git fsck --unreachable --full && " \
-        "git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
+    cn = !"git reflog expire --all && git fsck --unreachable --full && git prune && git gc --aggressive --quiet && git repack -Adq && git prune-packed --quiet"
     co = checkout
     di = diff
     dt = difftool
@@ -62,15 +61,11 @@
     st = status
     su = !"git pull && echo && git sr \"git pull\" && git submodule -q sync && git ss"
 
-    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
-    bclean = !"git for-each-ref --format='%(refname:short)' refs/heads | " \
-        "grep -Ev 'master' | xargs git bd"
+    add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
+    bclean = !"git for-each-ref --format='%(refname:short)' refs/heads | grep -Ev 'master' | xargs git bd"
     branch-name = !"git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)"
-    remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
-    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name|" \
-        "xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
+    remove = !"git ls-files -zd --no-empty-directory --exclude-standard --full-name | xargs -I {} -0 bash -c 'git rm \"{}\" && git cm -m \"remove file {} from repository\"'"
+    update = !"git ls-files -zm --no-empty-directory --exclude-standard --full-name | xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"update file {} in repository on date $(date \"+%F\")\"'"
 
 [branch]
     autoSetupMerge = always
@@ -123,6 +118,7 @@
     renames = copy
 
 [fetch]
+    output = compact
     prune = true
     pruneTags = true
     recurseSubmodules = true
@@ -155,6 +151,7 @@
 
 [mergetool]
     keepBackup = false
+    writeToTemp = true
 
 [pack]
     compression = 9
@@ -168,6 +165,7 @@
     recurseSubmodules = on-demand
 
 [rebase]
+    abbreviateCommands = true
     autoSquash = true
     autoStash = true
     stat = true
@@ -183,6 +181,9 @@
 
 [tag]
     sort = version:refname
+
+[transfer]
+    fsckObjects = true
 
 [user]
     email = info@renatius.de
