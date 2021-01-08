@@ -12,6 +12,7 @@ Session.vim
 [._]ss[a-gi-z]
 [._]sw[a-p]
 atlassian-ide-plugin.xml
+auth.json
 cmake-build-*/
 com_crashlytics_export_strings.xml
 composer.phar
