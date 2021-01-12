@@ -37,17 +37,21 @@
     pfn = !"git pf --no-verify"
     pgh = !"git ph --force github $(git branch-name)"
     pgl = !"git ph --force gitlab $(git branch-name)"
-    ph = push --progress --set-upstream --tags
+    ph = push --progress --set-upstream
     pl = pull
     pn = !"git ph --no-verify origin $(git branch-name)"
+    pt = !"for i in $(git remote); do git ph --tags ${i}; done"
     pu = !"for i in $(git remote); do git ph ${i} $(git branch-name); done"
     ra = rebase --abort
     rc = rebase --continue
     re = reset
     rh = reset --hard
+    rhn = !"git rh HEAD~${1}; echo"
     ri = rebase --verbose --stat --interactive --preserve-merges --autosquash
+    rin = !"git ri HEAD~${1}; echo"
     rp = rebase --skip
     rs = reset --soft
+    rsn = !"git rs HEAD~${1}; echo"
     rv = remote --verbose
     sa = stash push
     sau = stash push --include-untracked
@@ -60,6 +64,8 @@
     ss = !"git st && git sf \"git st -s; echo\" && git submodule status --recursive"
     st = status
     su = !"git pull && echo && git sr \"git pull\" && git submodule -q sync && git ss"
+    sw = switch --progress --recurse-submodules
+    td = !"for i in $(git remote); do git ph --delete ${i} ${1}; done; git tag --delete"
 
     add-new = !"git ls-files -zo --no-empty-directory --exclude-standard --full-name | xargs -I {} -0 bash -c 'git add \"{}\" && git cm -m \"add file {} to repository\"'"
     bclean = !"git for-each-ref --format='%(refname:short)' refs/heads | grep -Ev 'master' | xargs git bd"
